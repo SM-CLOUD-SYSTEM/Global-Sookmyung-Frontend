@@ -1,0 +1,11 @@
+# .txt 파일은 텍스트로 처리
+*.txt text
+
+# assets은 바이너리 파일로 취급
+*.jpg binary
+*.png binary
+*.svg binary
+*.ico binary
+
+# 모든 파일에 대해 LF 사용
+* text=auto eol=lf
