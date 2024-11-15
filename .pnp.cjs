@@ -29,6 +29,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:5.17.0"],\
           ["@testing-library/react", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:13.5.0"],\
+          ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:18.3.1"],\
           ["react-scripts", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:5.0.1"],\
@@ -9732,6 +9733,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:5.17.0"],\
           ["@testing-library/react", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:13.4.0"],\
           ["@testing-library/user-event", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:13.5.0"],\
+          ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:18.3.1"],\
           ["react-scripts", "virtual:e0427930a2b7fd3167d125f6b150291dae96f487e7d2ba1d1cb24506774b20a072431496ad9f7565a988c96c2a6173e5ecd6ca136abda0dab61c0cee114c5f63#npm:5.0.1"],\
@@ -14897,6 +14899,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/prelude-ls-npm-1.2.1-3e4d272a55-10c0.zip/node_modules/prelude-ls/",\
         "packageDependencies": [\
           ["prelude-ls", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prettier", [\
+      ["npm:3.3.3", {\
+        "packageLocation": "./.yarn/unplugged/prettier-npm-3.3.3-e811f023f3/node_modules/prettier/",\
+        "packageDependencies": [\
+          ["prettier", "npm:3.3.3"]\
         ],\
         "linkType": "HARD"\
       }]\
