@@ -2,6 +2,7 @@ import App from '@/App.jsx';
 import Board from '@pages/Board';
 import Search from '@pages/Search';
 import Mypage from '@pages/Mypage';
+import Login from '@pages/Login';
 
 import { PATH } from '@constants';
 
@@ -29,6 +30,10 @@ export const routes = [
       {
         path: PATH.mypage,
         element: <Mypage />,
+      },
+      {
+        path: PATH.login,
+        element: <Login />,
       },
     ],
   },
