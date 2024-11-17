@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
+import Header from '@components/Header';
 import styles from './App.module.css';
 
 function App() {
   return (
     <main className={styles.app}>
+      <Header />
       <Outlet />
     </main>
   );
