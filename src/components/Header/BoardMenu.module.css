@@ -10,12 +10,12 @@
 }
 
 .menu:hover {
-  color: var(--white);
+  color: var(--gray-scale-9);
   background: var(--orange-main);
 }
 
 .select .menu {
-  color: var(--white);
+  color: var(--gray-scale-9);
   background: var(--orange-main);
 }
 

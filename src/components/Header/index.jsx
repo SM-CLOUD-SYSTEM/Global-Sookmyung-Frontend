@@ -18,7 +18,7 @@ export default function Header() {
       <Link to={PATH.root}>
         <Logo className={styles.logo} />
       </Link>
-      <ul className={styles.categories}>
+      <ul className={styles.menus}>
         <BoardMenu to={PATH.allBoard} name={BOARD.all.name} />
         <BoardMenu
           to={PATH.internationalBoard}
