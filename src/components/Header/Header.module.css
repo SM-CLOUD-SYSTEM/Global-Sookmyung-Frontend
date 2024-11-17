@@ -3,14 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--gray-scale-8);
 }
 
 .logo {
   margin-right: 7.125rem;
 }
 
-.categories {
+.menus {
   flex: 1;
   display: flex;
   align-items: center;
