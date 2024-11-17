@@ -1,17 +1,17 @@
 import { useLocation, Link } from 'react-router-dom';
 
 import BoardMenu from '@components/Header/BoardMenu.jsx';
+import Icons from '@components/Header/Icons.jsx';
+import LoginButton from '@components/Header/LoginButton.jsx';
 
 import { BOARD, PATH } from '@constants';
 import { ReactComponent as Logo } from '@assets/logo.svg';
-import { ReactComponent as SearchIcon } from '@assets/Header/search.svg';
-import { ReactComponent as AccountCircleIcon } from '@assets/Header/accountCircle.svg';
-import { ReactComponent as AccountCirclePressIcon } from '@assets/Header/accountCirclePress.svg';
 
 import styles from './Header.module.css';
 
 export default function Header() {
   const { pathname } = useLocation();
+  const isLogin = false;
 
   return (
     <header className={styles.header}>
@@ -25,18 +25,7 @@ export default function Header() {
           name={BOARD.international.name}
         />
       </ul>
-      <div className={styles.icons}>
-        <Link to={PATH.search}>
-          <SearchIcon />
-        </Link>
-        <Link to={PATH.mypage}>
-          {pathname === PATH.mypage ? (
-            <AccountCirclePressIcon />
-          ) : (
-            <AccountCircleIcon />
-          )}
-        </Link>
-      </div>
+      {isLogin ? <Icons /> : <LoginButton />}
     </header>
   );
 }
