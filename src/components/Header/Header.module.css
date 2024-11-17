@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 7rem;
+  background-color: var(--gray-scale-9);
   border-bottom: 1px solid var(--gray-scale-8);
-}
-
-.logo {
-  margin-right: 7.125rem;
+  position: sticky;
+  top: 0;
 }
 
 .menus {
@@ -15,4 +15,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.3rem;
 }
