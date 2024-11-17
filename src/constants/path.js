@@ -4,5 +4,5 @@ export const PATH = Object.freeze({
   allBoard: '/board/all',
   internationalBoard: '/board/international',
   search: '/search',
-  mypage: '/mypage',
+  myPage: '/mypage',
 });
