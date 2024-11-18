@@ -1,0 +1,37 @@
+.container {
+  padding: 10px 10px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-9);
+  box-shadow: 0px 5px 30px -15px rgba(0, 0, 0, 0.12);
+  transition: 150ms all ease;
+}
+
+.container:has(.input:focus) {
+  border: 1px solid var(--orange-1);
+}
+
+.input {
+  width: 100%;
+  color: var(--gray-scale-1);
+}
+
+.input::placeholder {
+  font-weight: 300;
+  color: var(--gray-scale-4);
+}
+
+.button {
+  min-width: 88px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  background: rgba(255, 167, 123, 0.25);
+  color: var(--orange-main);
+}
