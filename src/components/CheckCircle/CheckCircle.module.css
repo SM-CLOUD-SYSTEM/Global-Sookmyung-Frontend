@@ -1,0 +1,15 @@
+.checkCircle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.label {
+  color: var(--gray-scale-1);
+  font-weight: 500;
+}
+
+.input {
+  display: none;
+}
