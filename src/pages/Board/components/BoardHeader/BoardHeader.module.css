@@ -1,0 +1,17 @@
+.boardHeader {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.boardHeader .boardTitle {
+  margin: 2.5px 0;
+  color: var(--gray-scale-1);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.boardHeader .writeButton {
+  width: 115px;
+  display: flex;
+}
