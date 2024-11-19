@@ -13,6 +13,7 @@
   color: var(--gray-scale-9);
   font-size: 18px;
   font-weight: 600;
+  transition: 200ms all ease;
 }
 
 .button.small {
