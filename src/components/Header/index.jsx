@@ -10,19 +10,19 @@ import { ReactComponent as SearchIcon } from '@assets/Header/search.svg';
 
 import styles from './Header.module.css';
 
-export default function Header() {
-  const isLogin = false;
+const isLogin = false;
 
+export default function Header() {
   return (
     <header className={styles.header}>
       <Link to={PATH.root}>
         <Logo />
       </Link>
       <ul className={styles.menus}>
-        <BoardMenu to={PATH.allBoard} name={BOARD.all.name} />
+        <BoardMenu to={PATH.allBoard} name={BOARD[PATH.allBoard].name} />
         <BoardMenu
           to={PATH.internationalBoard}
-          name={BOARD.international.name}
+          name={BOARD[PATH.internationalBoard].name}
         />
       </ul>
       <div className={styles.icons}>
