@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import { Profile } from '@components';
-import { Notice } from '@pages/Board/components';
+import { BoardHeader, Notice } from '@pages/Board/components';
 
 import { BOARD, PATH } from '@constants';
 
@@ -21,6 +21,9 @@ export default function Board() {
         </div>
         <div className={styles.middle}>
           <Notice />
+        </div>
+        <div className={styles.bottom}>
+          <BoardHeader />
         </div>
       </article>
     </section>
