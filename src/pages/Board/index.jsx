@@ -1,7 +1,7 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import { Profile } from '@components';
-import { BoardHeader, Notice } from '@pages/Board/components';
+import { BoardHeader, BoardIndex, Notice, Post } from '@pages/Board/components';
 
 import { BOARD, PATH } from '@constants';
 
@@ -24,6 +24,20 @@ export default function Board() {
         </div>
         <div className={styles.bottom}>
           <BoardHeader />
+          <div className={styles.board}>
+            <BoardIndex />
+            <ul>
+              {posts.map((post) => (
+                <Link
+                  className={styles.post}
+                  key={post.postId}
+                  to={getPostPath(post.postId)}
+                >
+                  <Post post={post} />
+                </Link>
+              ))}
+            </ul>
+          </div>
         </div>
       </article>
     </section>

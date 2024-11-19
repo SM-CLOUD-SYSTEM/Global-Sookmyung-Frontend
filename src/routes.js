@@ -1,5 +1,6 @@
 import App from '@/App.jsx';
 import Board from '@pages/Board';
+import Post from '@pages/Post';
 import Search from '@pages/Search';
 import MyPage from '@pages/MyPage';
 import Login from '@pages/Login';
@@ -23,6 +24,14 @@ export const routes = [
       {
         path: PATH.internationalBoard,
         element: <Board />,
+      },
+      {
+        path: `${PATH.allBoard}${PATH.post}`,
+        element: <Post />,
+      },
+      {
+        path: `${PATH.internationalBoard}${PATH.post}`,
+        element: <Post />,
       },
       {
         path: PATH.search,
