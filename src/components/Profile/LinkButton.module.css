@@ -1,0 +1,30 @@
+.link {
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-9);
+  box-shadow:
+    -1px -1px 30px 0px #fff inset,
+    -4px -4px 9.8px -9px rgba(0, 0, 0, 0.03) inset,
+    4px 4px 10px -3px rgba(0, 0, 0, 0.06);
+  color: var(--gray-scale-2);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  transition: 200ms all ease;
+}
+
+.button:hover {
+  color: var(--orange-main);
+  background: var(--orange-5);
+  border: 1px solid var(--orange-4);
+  box-shadow:
+    -4px -4px 9.8px -9px rgba(0, 0, 0, 0.03) inset,
+    4px 4px 10px -3px rgba(0, 0, 0, 0.06);
+}

@@ -4,7 +4,7 @@ import styles from './BoardMenu.module.css';
 
 export default function BoardMenu({ to, name }) {
   const { pathname } = useLocation();
-  const isSeleced = pathname === to && styles.select;
+  const isSeleced = pathname === to ? styles.select : null;
 
   return (
     <Link to={to} className={isSeleced}>

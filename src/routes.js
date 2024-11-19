@@ -3,6 +3,7 @@ import Board from '@pages/Board';
 import Search from '@pages/Search';
 import MyPage from '@pages/MyPage';
 import Login from '@pages/Login';
+import GroupBoard from '@pages/GroupBoard';
 
 import { PATH } from '@constants';
 
@@ -34,6 +35,14 @@ export const routes = [
       {
         path: PATH.login,
         element: <Login />,
+      },
+      {
+        path: PATH.myPost,
+        element: <GroupBoard />,
+      },
+      {
+        path: PATH.bookmark,
+        element: <GroupBoard />,
       },
     ],
   },

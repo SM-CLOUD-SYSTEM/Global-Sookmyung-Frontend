@@ -1,0 +1,59 @@
+.container {
+  padding: 18px 32px;
+  display: flex;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-8);
+  background: var(--gray-scale-9);
+  box-shadow: 0px 5px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+  width: 238px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 29px;
+}
+
+/* top */
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.image {
+  width: 190px;
+}
+
+.nickname {
+  color: var(--gray-scale-1);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.48px;
+}
+
+/* bottom */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout {
+  display: flex;
+  height: 20px;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--gray-scale-4);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.26px;
+}
