@@ -1,0 +1,32 @@
+.container {
+  margin: 70px 0 100px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.article {
+  flex: 1;
+}
+
+/* top */
+.top {
+  margin-bottom: 80px;
+}
+
+.title {
+  margin-bottom: 10px;
+  color: var(--gray-scale-1);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.describe {
+  color: var(--gray-scale-4);
+}
+
+/* middle */
+.middle {
+  margin-bottom: 60px;
+}
