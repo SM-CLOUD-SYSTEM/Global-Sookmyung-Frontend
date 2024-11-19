@@ -1,0 +1,25 @@
+.boardIndex {
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 14px 14px 0px 0px;
+  border: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-8);
+}
+
+.boardIndex .right {
+  width: 123px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.boardIndex .right div {
+  width: 37px;
+  display: flex;
+  justify-content: center;
+}
+
+.boardIndex .name {
+  color: var(--gray-scale-4);
+  font-size: 14px;
+}

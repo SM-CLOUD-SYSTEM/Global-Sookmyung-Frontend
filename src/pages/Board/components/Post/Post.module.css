@@ -1,0 +1,62 @@
+.post {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 200ms all ease;
+}
+
+.post:hover {
+  background-color: var(--gray-scale-8);
+}
+
+.post .left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 23px;
+}
+
+.post .right {
+  width: 123px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--gray-scale-1);
+  font-size: 18px;
+}
+
+.commentCount {
+  color: var(--orange-1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.date {
+  color: var(--gray-scale-3);
+  font-weight: 300;
+}
+
+.right > div {
+  width: 37px;
+  display: flex;
+  justify-content: center;
+}
+
+.writer {
+  color: var(--gray-scale-4);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.likeCount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  color: var(--gray-scale-4);
+  font-size: 14px;
+  font-weight: 300;
+}
