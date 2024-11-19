@@ -1,15 +1,50 @@
+import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 import { Profile } from '@components';
-import { BoardHeader, BoardIndex, Notice, Post } from '@pages/Board/components';
+import {
+  BoardHeader,
+  BoardIndex,
+  Notice,
+  Paginator,
+  Post,
+} from '@pages/Board/components';
 
 import { BOARD, PATH } from '@constants';
 
 import styles from './Board.module.css';
 
+const postId = 1;
+const title = '게시글제목';
+const commentCount = 1;
+const date = '2024-11-20T02:00:00Z';
+const writer = '작성자';
+const likeCount = 0;
+const posts = [
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+];
+
+const START_PAGE = 1;
+const pageCount = 117;
+
 export default function Board() {
+  const [page, setPage] = useState(START_PAGE);
   const { pathname } = useLocation();
   const { title, describe } = BOARD[pathname];
+  const getPostPath = (postId) => {
+    const prefix = pathname === PATH.root ? PATH.allBoard : pathname;
+    const postPath = PATH.post.replace(':postId', postId);
+    return `${prefix}${postPath}`;
+  };
 
   return (
     <section className={styles.container}>
@@ -38,6 +73,7 @@ export default function Board() {
               ))}
             </ul>
           </div>
+          <Paginator page={page} setPage={setPage} pageCount={pageCount} />
         </div>
       </article>
     </section>
