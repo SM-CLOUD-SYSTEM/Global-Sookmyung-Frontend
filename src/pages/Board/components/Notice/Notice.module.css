@@ -1,0 +1,24 @@
+.notice {
+  padding: 26px 29px;
+  display: flex;
+  align-items: center;
+  gap: 49px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-9);
+}
+
+.tag {
+  color: var(--orange-1);
+  font-size: 18px;
+}
+
+.title {
+  color: var(--gray-scale-4);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
