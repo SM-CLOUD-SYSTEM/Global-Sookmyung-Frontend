@@ -11,9 +11,13 @@ export default function Post() {
       <Profile />
       <article className={styles.post}>
         <BoardNavigationHeader />
-        <div className={styles.wrapper}>
-          <PostHeader post={POST} />
-        </div>
+        <section className={styles.wrapper}>
+          <div className={styles.top}>
+            <PostHeader post={POST} />
+            <p className={styles.content}>{POST.content}</p>
+          </div>
+          <div className={styles.bottom}></div>
+        </section>
       </article>
     </section>
   );
