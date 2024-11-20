@@ -8,7 +8,7 @@ export default function PostHeader({ post }) {
   const {
     title,
     profileImage = DefaultProfile,
-    nickname,
+    writer,
     date,
     likeCount,
     bookmarkCount,
@@ -29,7 +29,7 @@ export default function PostHeader({ post }) {
           />
         </div>
         <div className={styles.right}>
-          <div className={styles.nickname}>{nickname}</div>
+          <div className={styles.writer}>{writer}</div>
           <div className={styles.meta}>
             <div>
               <span className={styles.date}>

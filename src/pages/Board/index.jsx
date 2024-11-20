@@ -12,27 +12,9 @@ import {
 
 import Path from '@utils/Path.js';
 import { BOARD } from '@constants';
+import { POSTS } from '@dummy';
 
 import styles from './Board.module.css';
-
-const postId = 1;
-const title = '게시글제목';
-const commentCount = 1;
-const date = '2024-11-20T02:00:00Z';
-const writer = '작성자';
-const likeCount = 0;
-const posts = [
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-  { postId, title, commentCount, date, writer, likeCount },
-];
 
 const START_PAGE = 1;
 const pageCount = 117;
@@ -58,7 +40,7 @@ export default function Board() {
           <div className={styles.board}>
             <BoardIndex />
             <ul>
-              {posts.map((post) => (
+              {POSTS.map((post) => (
                 <Link
                   className={styles.post}
                   key={post.postId}
