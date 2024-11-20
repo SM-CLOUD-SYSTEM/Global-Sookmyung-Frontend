@@ -7,10 +7,9 @@ import MyPageIcon from '@components/Header/MyPageIcon.jsx';
 import { BOARD, PATH } from '@constants';
 import { ReactComponent as Logo } from '@assets/logo.svg';
 import { ReactComponent as SearchIcon } from '@assets/Header/search.svg';
+import { USER } from '@dummy';
 
 import styles from './Header.module.css';
-
-const isLogin = false;
 
 export default function Header() {
   return (
@@ -29,7 +28,7 @@ export default function Header() {
         <Link to={PATH.search}>
           <SearchIcon />
         </Link>
-        {isLogin ? <MyPageIcon /> : <LoginButton />}
+        {USER.isLogin ? <MyPageIcon /> : <LoginButton />}
       </div>
     </header>
   );
