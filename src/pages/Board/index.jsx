@@ -11,6 +11,7 @@ import {
 } from '@pages/Board/components';
 
 import { BOARD, PATH } from '@constants';
+import { getDetailPathname } from '@utils/path.js';
 
 import styles from './Board.module.css';
 
@@ -41,9 +42,9 @@ export default function Board() {
   const { pathname } = useLocation();
   const { title, describe } = BOARD[pathname];
   const getPostPath = (postId) => {
-    const prefix = pathname === PATH.root ? PATH.allBoard : pathname;
+    const basePath = getDetailPathname(pathname);
     const postPath = PATH.post.replace(':postId', postId);
-    return `${prefix}${postPath}`;
+    return `${basePath}${postPath}`;
   };
 
   return (
