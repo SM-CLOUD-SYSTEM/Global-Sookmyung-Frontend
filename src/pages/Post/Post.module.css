@@ -20,3 +20,14 @@
   background: var(--gray-scale-9);
   box-shadow: 0px 5px 30px -15px rgba(0, 0, 0, 0.2);
 }
+
+.content {
+  margin: 35px 0 50px 0;
+  color: var(--gray-scale-1);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.72px;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
