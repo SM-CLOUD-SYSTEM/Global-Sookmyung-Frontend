@@ -45,3 +45,7 @@
 .post:last-child {
   border-radius: 0 0 14px 14px;
 }
+
+.post:last-child > :hover {
+  border-radius: 0 0 14px 14px;
+}
