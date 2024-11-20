@@ -1,0 +1,39 @@
+.container {
+  padding: 40px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-8);
+  background: var(--gray-scale-9);
+  box-shadow: 0px 5px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+.profile {
+  width: 263px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+/* top */
+.top > p {
+  color: var(--gray-scale-4, #808593);
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.36px;
+  text-align: center;
+}
+
+.top > p > span {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+/* bottom */
+.toLogin {
+  height: 54px;
+  display: flex;
+}
