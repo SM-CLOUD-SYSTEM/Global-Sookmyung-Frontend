@@ -10,7 +10,7 @@ import {
   Post,
 } from '@pages/Board/components';
 
-import Path from '@utils/path.js';
+import Path from '@utils/Path.js';
 import { BOARD } from '@constants';
 
 import styles from './Board.module.css';
