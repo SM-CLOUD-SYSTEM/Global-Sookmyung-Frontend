@@ -10,8 +10,8 @@ import {
   Post,
 } from '@pages/Board/components';
 
-import { BOARD, PATH } from '@constants';
-import { getDetailPathname } from '@utils/path.js';
+import Path from '@utils/path.js';
+import { BOARD } from '@constants';
 
 import styles from './Board.module.css';
 
@@ -41,11 +41,6 @@ export default function Board() {
   const [page, setPage] = useState(START_PAGE);
   const { pathname } = useLocation();
   const { title, describe } = BOARD[pathname];
-  const getPostPath = (postId) => {
-    const basePath = getDetailPathname(pathname);
-    const postPath = PATH.post.replace(':postId', postId);
-    return `${basePath}${postPath}`;
-  };
 
   return (
     <section className={styles.container}>
@@ -67,7 +62,7 @@ export default function Board() {
                 <Link
                   className={styles.post}
                   key={post.postId}
-                  to={getPostPath(post.postId)}
+                  to={Path.getPostPath({ postId: post.postId, pathname })}
                 >
                   <Post post={post} />
                 </Link>

@@ -1,12 +1,13 @@
 import { useLocation, Link } from 'react-router-dom';
 
+import Path from '@utils/path.js';
+
 import styles from './BoardMenu.module.css';
-import { getDetailPathname } from '../../utils/path.js';
 
 export default function BoardMenu({ to, name }) {
   const { pathname } = useLocation();
   const isSelected = () => {
-    const currentPath = getDetailPathname(pathname);
+    const currentPath = Path.convertPathnameForRoot(pathname);
     return currentPath.includes(to) ? styles.select : null;
   };
 
