@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 
-import Path from '@utils/path.js';
+import Path from '@utils/Path.js';
 import { ReactComponent as BackIcon } from '@assets/backArrow.svg';
 
 import styles from './BoardNavigationHeader.module.css';

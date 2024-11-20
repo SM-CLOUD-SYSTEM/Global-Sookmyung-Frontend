@@ -1,4 +1,4 @@
-import DateFormatter from '@utils/date.js';
+import DateFormatter from '@utils/Date.js';
 import { ReactComponent as LikeIcon } from '@assets/like.svg';
 
 import styles from './Post.module.css';
