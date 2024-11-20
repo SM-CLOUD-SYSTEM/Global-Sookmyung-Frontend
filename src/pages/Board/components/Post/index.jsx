@@ -1,4 +1,4 @@
-import { formatDateToMonthDay } from '@utils/date.js';
+import DateFormatter from '@utils/date.js';
 import { ReactComponent as LikeIcon } from '@assets/like.svg';
 
 import styles from './Post.module.css';
@@ -11,7 +11,9 @@ export default function Post({ post }) {
       <div className={styles.left}>
         <span className={styles.title}>{title}</span>
         <span className={styles.commentCount}>({commentCount})</span>
-        <span className={styles.date}>{formatDateToMonthDay(date)}</span>
+        <span className={styles.date}>
+          {DateFormatter.formatMonthDayKR(date)}
+        </span>
       </div>
       <div className={styles.right}>
         <div>
