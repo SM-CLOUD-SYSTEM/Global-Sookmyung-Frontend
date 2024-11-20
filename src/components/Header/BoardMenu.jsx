@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 
-import Path from '@utils/path.js';
+import Path from '@utils/Path.js';
 
 import styles from './BoardMenu.module.css';
 
