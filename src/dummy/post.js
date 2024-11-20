@@ -1,19 +1,57 @@
-const title = '게시글제목';
-const profileImage = undefined;
-const nickname = '흑백요리사';
-const date = '2024.11.20';
+const postId = 1;
+const title = '한국어 어학 스터디 그룹 모집! (초급/중급) 📚';
+const commentCount = 1;
+const date = '2024-11-20T02:00:00Z';
+const writer = '눈송이';
 const likeCount = 100;
+const profileImage = undefined;
 const bookmarkCount = 100;
-const content = `모든 국민은 그 보호하는 자녀에게 적어도 초등교육과 법률이 정하는 교육을 받게 할 의무를 진다. 감사원은 세입·세출의 결산을 매년 검사하여 대통령과 차년도국회에 그 결과를 보고하여야 한다.
-형사피고인은 유죄의 판결이 확정될 때까지는 무죄로 추정된다. 신체장애자 및 질병·노령 기타의 사유로 생활능력이 없는 국민은 법률이 정하는 바에 의하여 국가의 보호를 받는다.
-국가는 청원에 대하여 심사할 의무를 진다. 모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.
-국가원로자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국회는 국민의 보통·평등·직접·비밀선거에 의하여 선출된 국회의원으로 구성한다.
-국회는 의장 1인과 부의장 2인을 선출한다. 대법관은 대법원장의 제청으로 국회의 동의를 얻어 대통령이 임명한다. 국무위원은 국정에 관하여 대통령을 보좌하며, 국무회의의 구성원으로서 국정을 심의한다.`;
+const content = `안녕하세요!
+저는 [국적]에서 온 [이름]이고, 지금 한국에서 유학 중입니다. 한국어를 더 잘하고 싶어서 함께 공부할 스터디 그룹을 만들고자 합니다. 😊
+
+스터디 목적:
+한국어 회화 및 문법을 함께 공부하고, 자연스러운 대화 능력을 키우기 위해 모입니다.
+저는 한국어 초급에서 중급 수준이고, 회화 중심의 스터디를 하고 싶습니다.
+
+모집 대상:
+- 한국어 회화를 배우고 싶으신 분!
+- 비슷한 수준의 한국어를 구사하는 분!
+- 다양한 문화와 경험을 나누고 싶은 분!
+
+스터디 내용:
+- 주 1~2회 모임 (시간과 장소는 협의 후 결정)
+- 주제별 회화 연습 (예: 자기소개, 일상 대화, 음식, 여행 등)
+- 한국어 문법 복습 및 연습
+- 한국 문화 관련 토픽에 대한 이야기
+
+장소:
+[예시] 서울시 [구/동], [카페/도서관/스터디룸 등]
+모임 장소는 모임 인원에 맞춰 적절히 결정할 예정입니다.
+
+참여 방법:
+- 관심 있으신 분은 댓글이나 DM으로 간단히 자기소개와 한국어 수준을 알려주세요.
+- 1~2주 내에 첫 모임을 가질 예정입니다!
+
+한국어를 배우는 여정을 함께하며 서로 도울 수 있는 좋은 기회가 되었으면 좋겠습니다. 많은 참여 부탁드려요!
+감사합니다! 😊`;
+
+export const POSTS = [
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+  { postId, title, commentCount, date, writer, likeCount },
+];
 
 export const POST = {
   title,
   profileImage,
-  nickname,
+  writer,
   date,
   likeCount,
   bookmarkCount,
