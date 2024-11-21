@@ -91,6 +91,7 @@ button,
 input {
   outline: none;
   border: none;
+  color: inherit;
   background-color: transparent;
   word-break: keep-all;
 }

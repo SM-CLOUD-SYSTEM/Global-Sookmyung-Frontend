@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  width: 78px;
+  height: 78px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border-radius: 100%;
+  background-color: var(--gray-scale-8);
+}
+
+.button:hover {
+  background-color: var(--gray-scale-7);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.count {
+  color: var(--gray-scale-3);
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.text {
+  color: var(--gray-scale-3);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+}
+
+/* active */
+.active .button {
+  background-color: var(--orange-4);
+}
+
+.active .text {
+  color: var(--orange-main);
+}
+
+.active .count {
+  color: var(--orange-main);
+}
