@@ -3,9 +3,9 @@ const title = '한국어 어학 스터디 그룹 모집! (초급/중급) 📚';
 const commentCount = 1;
 const date = '2024-11-20T02:00:00Z';
 const writer = '눈송이';
-const likeCount = 100;
+const likeCount = 123;
 const profileImage = undefined;
-const bookmarkCount = 100;
+const bookmarkCount = 27;
 const content = `안녕하세요!
 저는 [국적]에서 온 [이름]이고, 지금 한국에서 유학 중입니다. 한국어를 더 잘하고 싶어서 함께 공부할 스터디 그룹을 만들고자 합니다. 😊
 

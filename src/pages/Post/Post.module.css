@@ -31,3 +31,10 @@
   white-space: pre-wrap;
   word-break: keep-all;
 }
+
+.buttons {
+  margin: 100px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+}
