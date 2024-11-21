@@ -1,6 +1,7 @@
 import App from '@/App.jsx';
 import Board from '@pages/Board';
 import Post from '@pages/Post';
+import PostCreation from '@pages/PostCreation';
 import Search from '@pages/Search';
 import MyPage from '@pages/MyPage';
 import Login from '@pages/Login';
@@ -32,6 +33,10 @@ export const routes = [
       {
         path: `${PATH.internationalBoard}${PATH.post}`,
         element: <Post />,
+      },
+      {
+        path: PATH.postCreation,
+        element: <PostCreation />,
       },
       {
         path: PATH.search,

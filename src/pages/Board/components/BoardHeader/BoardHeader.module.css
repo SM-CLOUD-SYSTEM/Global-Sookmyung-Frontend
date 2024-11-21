@@ -15,3 +15,7 @@
   width: 115px;
   display: flex;
 }
+
+.link {
+  width: 100%;
+}
