@@ -11,6 +11,7 @@ export default function Button({
   return (
     <button
       className={`${styles.button} ${styles[size]}`}
+      type='button'
       onClick={onClick}
       disabled={disabled}
     >

@@ -1,0 +1,43 @@
+.container {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 7px;
+}
+
+.left {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  background: var(--gray-scale-8);
+  color: var(--gray-scale-1);
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.34px;
+}
+
+.textarea {
+  min-height: 63px;
+  outline: none;
+  border: none;
+  background-color: inherit;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: var(--gray-scale-5);
+}
+
+.left > span {
+  align-self: flex-end;
+}
+
+.right {
+  width: 115px;
+}
+
+.maxLength {
+  color: var(--gray-scale-5);
+  font-weight: 300;
+}

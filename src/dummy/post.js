@@ -56,4 +56,5 @@ export const POST = {
   likeCount,
   bookmarkCount,
   content,
+  commentCount,
 };
