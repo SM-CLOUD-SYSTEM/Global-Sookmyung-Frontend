@@ -1,0 +1,55 @@
+.container {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-9);
+}
+
+/* top */
+.top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.profile {
+  width: 50px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nickname {
+  color: var(--gray-scale-1);
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.32px;
+}
+
+.date {
+  color: var(--gray-scale-5);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+}
+
+/* bottom */
+.bottom {
+  margin-bottom: 36px;
+}
+
+.content {
+  color: var(--gray-scale-1);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.72px;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
