@@ -1,8 +1,9 @@
+import ProfileImage from '@components/ProfileImage';
 import LinkButton from '@components/Profile/LinkButton.jsx';
 import LoggedOutProfile from '@components/Profile/LoggedOutProfile.jsx';
 
 import { PATH } from '@constants';
-import DefaultProfile from '@assets/profile.png';
+
 import { USER } from '@dummy';
 
 import styles from './Profile.module.css';
@@ -15,11 +16,9 @@ export default function Profile() {
       <aside className={styles.container}>
         <div className={styles.profile}>
           <div className={styles.top}>
-            <img
-              className={styles.image}
-              src={DefaultProfile}
-              alt='default profile'
-            />
+            <div className={styles.image}>
+              <ProfileImage profileUrl={USER.profileUrl} />
+            </div>
             <p className={styles.nickname}>{nickname}</p>
           </div>
           <div className={styles.bottom}>

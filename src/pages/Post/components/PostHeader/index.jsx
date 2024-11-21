@@ -1,3 +1,5 @@
+import ProfileImage from '@components/ProfileImage';
+
 import DateFormatter from '@utils/Date.js';
 import { ReactComponent as MoreIcon } from '@assets/more.svg';
 import DefaultProfile from '@assets/profile.png';
@@ -7,8 +9,8 @@ import styles from './PostHeader.module.css';
 export default function PostHeader({ post }) {
   const {
     title,
-    profileImage = DefaultProfile,
-    writer,
+    profileUrl = DefaultProfile,
+    nickname,
     date,
     likeCount,
     bookmarkCount,
@@ -22,14 +24,12 @@ export default function PostHeader({ post }) {
       </div>
       <div className={styles.bottom}>
         <div className={styles.left}>
-          <img
-            className={styles.profile}
-            src={profileImage}
-            alt='profile image'
-          />
+          <div className={styles.profile}>
+            <ProfileImage profileUrl={profileUrl} />
+          </div>
         </div>
         <div className={styles.right}>
-          <div className={styles.writer}>{writer}</div>
+          <div className={styles.nickname}>{nickname}</div>
           <div className={styles.meta}>
             <div>
               <span className={styles.date}>
