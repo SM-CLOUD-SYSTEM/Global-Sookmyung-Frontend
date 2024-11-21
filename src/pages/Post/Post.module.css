@@ -33,8 +33,30 @@
 }
 
 .buttons {
-  margin: 100px 0 50px 0;
+  padding: 50px 0;
   display: flex;
   justify-content: center;
   gap: 42px;
+  border-bottom: 1px solid var(--gray-scale-7);
+}
+
+/* bottom */
+.bottom {
+  margin-top: 20px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.commentLabel {
+  color: var(--gray-scale-1);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.commentCount {
+  font-weight: normal;
 }
