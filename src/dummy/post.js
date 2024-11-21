@@ -1,4 +1,3 @@
-const postId = 1;
 const title = '한국어 어학 스터디 그룹 모집! (초급/중급) 📚';
 const commentCount = 1;
 const date = '2024-11-20T02:00:00Z';
@@ -36,16 +35,16 @@ const content = `안녕하세요!
 감사합니다! 😊`;
 
 export const POSTS = [
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
-  { postId, title, commentCount, date, nickname, likeCount },
+  { postId: 1, title, commentCount, date, nickname, likeCount },
+  { postId: 2, title, commentCount, date, nickname, likeCount },
+  { postId: 3, title, commentCount, date, nickname, likeCount },
+  { postId: 4, title, commentCount, date, nickname, likeCount },
+  { postId: 5, title, commentCount, date, nickname, likeCount },
+  { postId: 6, title, commentCount, date, nickname, likeCount },
+  { postId: 7, title, commentCount, date, nickname, likeCount },
+  { postId: 8, title, commentCount, date, nickname, likeCount },
+  { postId: 9, title, commentCount, date, nickname, likeCount },
+  { postId: 10, title, commentCount, date, nickname, likeCount },
 ];
 
 export const POST = {
