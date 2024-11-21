@@ -35,7 +35,11 @@ export const routes = [
         element: <Post />,
       },
       {
-        path: PATH.postCreation,
+        path: `${PATH.allBoard}${PATH.postCreation}`,
+        element: <PostCreation />,
+      },
+      {
+        path: `${PATH.internationalBoard}${PATH.postCreation}`,
         element: <PostCreation />,
       },
       {
