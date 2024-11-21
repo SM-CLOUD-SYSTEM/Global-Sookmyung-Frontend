@@ -14,7 +14,7 @@
 }
 
 .wrapper {
-  padding: 50px 35px;
+  padding: 50px 35px 0 35px;
   border-radius: 14px;
   border: 1px solid var(--gray-scale-8);
   background: var(--gray-scale-9);

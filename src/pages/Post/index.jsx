@@ -1,9 +1,12 @@
 import { Profile } from '@components';
-import BoardNavigationHeader from '@pages/Post/components/BoardNavigationHeader';
-import CommentInput from '@pages/Post/components/CommentInput';
-import PostHeader from '@pages/Post/components/PostHeader';
-import LikeButton from '@pages/Post/components/LikeButton';
-import BookmarkButton from '@pages/Post/components/BookmarkButton';
+import {
+  BoardNavigationHeader,
+  BookmarkButton,
+  Comments,
+  CommentInput,
+  LikeButton,
+  PostHeader,
+} from '@pages/Post/components';
 
 import { POST } from '@dummy';
 
@@ -33,6 +36,7 @@ export default function Post() {
               </p>
               <CommentInput />
             </div>
+            <Comments />
           </div>
         </section>
       </article>
