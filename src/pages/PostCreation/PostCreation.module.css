@@ -45,3 +45,18 @@
   line-height: 20px;
   letter-spacing: 0.36px;
 }
+
+.input {
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 14px;
+  background: var(--gray-scale-8);
+  color: var(--gray-scale-1);
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.36px;
+}
+
+.input::placeholder {
+  color: var(--gray-scale-3);
+}
