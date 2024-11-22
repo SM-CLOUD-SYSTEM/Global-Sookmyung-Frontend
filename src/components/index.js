@@ -6,3 +6,4 @@ export { default as Header } from '@components/Header';
 export { default as Input } from '@components/Input';
 export { default as Paginator } from '@components/Paginator';
 export { default as Profile } from '@components/Profile';
+export { default as WhiteButton } from '@components/WhiteButton';

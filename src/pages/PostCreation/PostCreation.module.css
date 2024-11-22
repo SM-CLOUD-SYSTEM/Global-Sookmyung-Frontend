@@ -8,6 +8,9 @@
 
 .article {
   flex: 1;
+}
+
+.wrapper {
   padding: 20px 45px;
   display: flex;
   flex-direction: column;
@@ -18,6 +21,7 @@
   box-shadow: 0px 5px 30px -15px rgba(0, 0, 0, 0.2);
 }
 
+/* top */
 .top {
   display: flex;
   flex-direction: column;
@@ -58,5 +62,34 @@
 }
 
 .input::placeholder {
-  color: var(--gray-scale-3);
+  color: var(--gray-scale-5);
+}
+
+/* bottom */
+.content {
+  width: 100%;
+  min-height: 320px;
+  resize: none;
+  color: var(--gray-scale-1);
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.36px;
+}
+
+.content::placeholder {
+  color: var(--gray-scale-5);
+}
+
+/* buttons */
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons > div {
+  height: 48px;
+  width: 316px;
+  display: flex;
+  gap: 20px;
 }
