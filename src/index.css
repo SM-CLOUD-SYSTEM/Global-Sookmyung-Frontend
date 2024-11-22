@@ -87,12 +87,13 @@ a {
   text-decoration: none;
 }
 
+textarea,
 button,
 input {
   outline: none;
   border: none;
   color: inherit;
-  background-color: transparent;
+  background-color: inherit;
   word-break: keep-all;
 }
 
