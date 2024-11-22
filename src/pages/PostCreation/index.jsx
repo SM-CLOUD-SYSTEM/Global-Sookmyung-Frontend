@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Profile } from '@components';
@@ -14,6 +15,11 @@ export default function PostCreation() {
   const { pathname } = useLocation();
   const board = Path.getBoard(pathname);
 
+  const [boardId, setBoardId] = useState(board.id);
+  const [title, setTitle] = useState('');
+
+  const updateTitle = (event) => setTitle(event.target.value);
+
   return (
     <section className={styles.container}>
       <Profile />
@@ -24,7 +30,11 @@ export default function PostCreation() {
               <span className={styles.label}>게시판</span>
             </div>
             <div className={styles.right}>
-              <Dropdown options={boards} initial={board} />
+              <Dropdown
+                options={boards}
+                setValue={setBoardId}
+                initial={board}
+              />
             </div>
           </div>
           <div className={styles.title}>
@@ -32,7 +42,13 @@ export default function PostCreation() {
               <span className={styles.label}>제목</span>
             </div>
             <div className={styles.right}>
-              <input className={styles.input} type='text' />
+              <input
+                className={styles.input}
+                type='text'
+                value={title}
+                onChange={updateTitle}
+                placeholder='제목을 입력해주세요'
+              />
             </div>
           </div>
         </div>
