@@ -35,17 +35,3 @@
 .board {
   margin-bottom: 30px;
 }
-
-.post {
-  display: block;
-  border: 1px solid var(--gray-scale-7);
-  border-top: none;
-}
-
-.post:last-child {
-  border-radius: 0 0 14px 14px;
-}
-
-.post:last-child > :hover {
-  border-radius: 0 0 14px 14px;
-}
