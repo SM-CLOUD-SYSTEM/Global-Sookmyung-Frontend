@@ -7,6 +7,10 @@
   background: var(--gray-scale-8);
 }
 
+.boardIndex.square {
+  border-radius: 0 14px 0px 0px;
+}
+
 .boardIndex .right {
   width: 123px;
   display: flex;
