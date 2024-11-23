@@ -1,11 +1,13 @@
+import { Post } from '@components';
 import { Group, Info, Profile } from '@pages/MyPage/components';
 
+import Path from '@utils/Path.js';
 import { PATH } from '@constants';
 import { ReactComponent as BookIcon } from '@assets/book.svg';
 import { ReactComponent as CallIcon } from '@assets/call.svg';
 import { ReactComponent as SchoolIcon } from '@assets/school.svg';
 
-import { INFO } from '@dummy/user.js';
+import { INFO, MY_POSTS, BOOKMARK_POSTS } from '@dummy';
 
 import styles from './MyPage.module.css';
 
@@ -28,14 +30,34 @@ export default function MyPage() {
               path: PATH.myPost,
               label: '전체보기',
             }}
-          ></Group>
+          >
+            {MY_POSTS.map((post) => (
+              <Post
+                post={post}
+                to={Path.getPostPath({
+                  postId: post.postId,
+                  boardId: post.boardId,
+                })}
+              />
+            ))}
+          </Group>
           <Group
             title='즐겨찾기한 글'
             to={{
               path: PATH.bookmark,
               label: '전체보기',
             }}
-          ></Group>
+          >
+            {BOOKMARK_POSTS.map((post) => (
+              <Post
+                post={post}
+                to={Path.getPostPath({
+                  postId: post.postId,
+                  boardId: post.boardId,
+                })}
+              />
+            ))}
+          </Group>
         </div>
       </article>
     </section>

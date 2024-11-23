@@ -47,6 +47,22 @@ export const POSTS = [
   { postId: 10, title, commentCount, date, nickname, likeCount },
 ];
 
+export const MY_POSTS = [
+  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
+  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
+];
+
+export const BOOKMARK_POSTS = [
+  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
+  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
+  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
+];
+
 export const POST = {
   title,
   profileUrl,
