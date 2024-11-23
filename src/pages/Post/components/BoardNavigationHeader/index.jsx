@@ -15,7 +15,7 @@ export default function BoardNavigationHeader() {
     <Link to={path}>
       <div className={styles.container}>
         <div className={styles.navigator}>
-          <BackIcon />
+          <BackIcon width={14} height={14} />
           <span className={styles.name}>
             {UNIV} {name}
           </span>
