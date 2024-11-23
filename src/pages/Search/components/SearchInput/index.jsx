@@ -4,15 +4,16 @@ import { ReactComponent as SearchIcon } from '@assets/search.svg';
 
 import styles from './SearchInput.module.css';
 
-export default function SearchInput() {
-  const [keyword, setKeyword] = useState('');
-  const updateKeyword = (event) => setKeyword(event.target.value);
+export default function SearchInput({ keyword, search }) {
+  const [value, setValue] = useState('');
+  const onChange = (event) => setValue(event.target.value);
 
-  const search = () => {};
   const searchOnEnter = (event) => {
-    if (event.key === 'Enter') {
-      search();
+    if (event.key !== 'Enter') {
+      return;
     }
+
+    search(value);
   };
 
   return (
@@ -20,12 +21,12 @@ export default function SearchInput() {
       <input
         className={styles.input}
         type='text'
-        value={keyword}
-        onChange={updateKeyword}
+        value={value}
+        onChange={onChange}
         onKeyDown={searchOnEnter}
         placeholder='"검색어"'
       />
-      <button className={styles.icon} onClick={search}>
+      <button className={styles.icon} onClick={() => search(value)}>
         <SearchIcon />
       </button>
     </div>
