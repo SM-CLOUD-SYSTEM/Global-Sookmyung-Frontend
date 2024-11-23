@@ -1,0 +1,10 @@
+.container {
+  margin-top: 70px;
+  display: flex;
+  gap: 24px;
+}
+
+.article {
+  flex: 1;
+  background-color: pink;
+}

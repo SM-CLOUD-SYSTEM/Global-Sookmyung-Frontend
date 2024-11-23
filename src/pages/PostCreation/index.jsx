@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Button, Profile, WhiteButton } from '@components';
 import { Dropdown } from '@pages/PostCreation/components';
@@ -14,6 +14,9 @@ const [_, ...boards] = Object.values(BOARD);
 export default function PostCreation() {
   const { pathname } = useLocation();
   const board = Path.getBoard(pathname);
+
+  const navigate = useNavigate();
+  const back = () => navigate(-1);
 
   const [boardId, setBoardId] = useState(board.id);
   const [title, setTitle] = useState('');
@@ -68,7 +71,7 @@ export default function PostCreation() {
         </div>
         <div className={styles.buttons}>
           <div>
-            <WhiteButton>취소</WhiteButton>
+            <WhiteButton onClick={back}>취소</WhiteButton>
             <Button disabled={!canCreate}>등록</Button>
           </div>
         </div>
