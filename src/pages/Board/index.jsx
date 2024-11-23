@@ -16,7 +16,7 @@ const pageCount = 117;
 export default function Board() {
   const [page, setPage] = useState(START_PAGE);
   const { pathname } = useLocation();
-  const { title, describe } = BOARD[pathname];
+  const { id, title, describe } = BOARD[pathname];
 
   return (
     <section className={styles.container}>
@@ -38,7 +38,10 @@ export default function Board() {
                 <Post
                   key={post.postId}
                   post={post}
-                  to={Path.getPostPath({ postId: post.postId, pathname })}
+                  to={Path.getPostPath({
+                    postId: post.postId,
+                    boardId: id,
+                  })}
                 />
               ))}
             </ul>

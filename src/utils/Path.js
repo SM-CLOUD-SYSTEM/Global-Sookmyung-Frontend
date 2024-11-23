@@ -12,11 +12,11 @@ class Path {
     return BOARDS.find(({ path }) => convertedPath.includes(path));
   }
 
-  static getPostPath({ postId, pathname }) {
-    const convertedPath = Path.convertPathnameForRoot(pathname);
+  static getPostPath({ postId, boardId }) {
+    const { path } = BOARDS.find((board) => board.id === boardId);
     const postPath = PATH.post.replace(':postId', postId);
 
-    return `${convertedPath}${postPath}`;
+    return `${path}${postPath}`;
   }
 }
 
