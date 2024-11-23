@@ -12,6 +12,9 @@ import { INFO, MY_POSTS, BOOKMARK_POSTS } from '@dummy';
 import styles from './MyPage.module.css';
 
 export default function MyPage() {
+  const TOP5_MY_POSTS = MY_POSTS.slice(0, 5);
+  const TOP5_BOOKMARK_POSTS = BOOKMARK_POSTS.slice(0, 5);
+
   return (
     <section className={styles.container}>
       <Profile />
@@ -31,7 +34,7 @@ export default function MyPage() {
               label: '전체보기',
             }}
           >
-            {MY_POSTS.map((post) => (
+            {TOP5_MY_POSTS.map((post) => (
               <Post
                 post={post}
                 to={Path.getPostPath({
@@ -48,7 +51,7 @@ export default function MyPage() {
               label: '전체보기',
             }}
           >
-            {BOOKMARK_POSTS.map((post) => (
+            {TOP5_BOOKMARK_POSTS.map((post) => (
               <Post
                 post={post}
                 to={Path.getPostPath({

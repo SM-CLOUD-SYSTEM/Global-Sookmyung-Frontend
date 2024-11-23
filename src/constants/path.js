@@ -7,6 +7,6 @@ export const PATH = Object.freeze({
   postCreation: '/post/create',
   search: '/search',
   myPage: '/mypage',
-  myPost: '/my-post',
-  bookmark: '/bookmark',
+  myPost: '/mypage/my-post',
+  bookmark: '/mypage/bookmark',
 });
