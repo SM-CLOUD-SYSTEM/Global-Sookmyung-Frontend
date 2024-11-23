@@ -8,8 +8,6 @@ import { USER } from '@dummy';
 
 import styles from './Profile.module.css';
 
-const nickname = '흑백요리사';
-
 export default function Profile() {
   if (USER.isLogin) {
     return (
@@ -19,7 +17,7 @@ export default function Profile() {
             <div className={styles.image}>
               <ProfileImage profileUrl={USER.profileUrl} />
             </div>
-            <p className={styles.nickname}>{nickname}</p>
+            <p className={styles.nickname}>{USER.nickname}</p>
           </div>
           <div className={styles.bottom}>
             <LinkButton to={PATH.myPost}>내가 쓴 글 보러가기</LinkButton>
