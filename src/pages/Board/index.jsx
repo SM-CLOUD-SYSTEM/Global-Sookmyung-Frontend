@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Paginator, Post, Profile } from '@components';
-import { BoardHeader, BoardIndex, Notice } from '@pages/Board/components';
+import { BoardIndex, Paginator, Post, Profile } from '@components';
+import { BoardHeader, Notice } from '@pages/Board/components';
 
 import Path from '@utils/Path.js';
 import { BOARD } from '@constants';
