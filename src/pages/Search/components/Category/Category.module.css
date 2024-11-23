@@ -1,0 +1,20 @@
+.category {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--gray-scale-7);
+}
+
+.menu {
+  padding: 6px 13px;
+  color: var(--gray-scale-4);
+  font-weight: 300;
+  border-bottom: 1px solid var(--gray-scale-7);
+  cursor: pointer;
+}
+
+.menu.select {
+  color: var(--orange-main);
+  font-weight: normal;
+  border-bottom: 1px solid var(--orange-main);
+}
