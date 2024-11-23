@@ -1,6 +1,7 @@
 .container {
   margin-top: 70px;
   display: flex;
+  align-items: flex-start;
   gap: 24px;
 }
 
@@ -9,6 +10,7 @@
 }
 
 .groups {
+  margin-bottom: 127px;
   display: flex;
   flex-direction: column;
   gap: 45px;
