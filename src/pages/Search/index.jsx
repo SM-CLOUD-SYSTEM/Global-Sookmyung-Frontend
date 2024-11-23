@@ -1,19 +1,17 @@
 import { useState } from 'react';
 
 import { useSearch } from '@hooks';
-import { BoardIndex, Post, Profile } from '@components';
+import { BoardIndex, Post, Paginator, Profile } from '@components';
 import { Category, SearchInput } from '@pages/Search/components';
 
+import Path from '@utils/Path.js';
 import { ReactComponent as ManageSearch } from '@assets/manageSearch.svg';
-import { SEARCH_POSTS } from '@dummy';
 
 import styles from './Search.module.css';
 
 export default function Search() {
-  const { keyword, category, updateCategory, search } = useSearch();
-
-  const [searchResults, setSearchResults] = useState([]);
-  const [searchKeyword, setSearchKeyword] = useState('고구마');
+  const { results, keyword, category, updateCategory, search } = useSearch();
+  const [page, setPage] = useState(1);
 
   return (
     <section className={styles.container}>
@@ -33,13 +31,27 @@ export default function Search() {
         </div>
         <div className={styles.result}>
           <Category category={category} updateCategory={updateCategory} />
+          <h3 className={styles.length}>
+            <span className={styles.label}>{category.label}</span>
+            {results.length}건
+          </h3>
           <div className={styles.board}>
             <BoardIndex />
             <ul>
-              {searchResults.map((post) => (
-                <Post post={post} />
+              {results.map((post) => (
+                <Post
+                  key={post.postId}
+                  post={post}
+                  to={Path.getPostPath({
+                    postId: post.postId,
+                    boardId: post.boardId,
+                  })}
+                />
               ))}
             </ul>
+          </div>
+          <div className={styles.paginator}>
+            <Paginator page={page} setPage={setPage} pageCount={117} />
           </div>
         </div>
       </article>

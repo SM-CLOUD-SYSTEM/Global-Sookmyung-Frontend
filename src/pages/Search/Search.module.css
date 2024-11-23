@@ -7,6 +7,7 @@
 
 .article {
   flex: 1;
+  margin-bottom: 132px;
 }
 
 .search {
@@ -34,4 +35,27 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+}
+
+.length {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray-scale-4);
+  font-size: 20px;
+}
+
+.label {
+  color: var(--gray-scale-2);
+  font-weight: 600;
+}
+
+.board {
+  margin-bottom: 35px;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
 }
