@@ -1,3 +1,17 @@
+.to {
+  display: block;
+  border: 1px solid var(--gray-scale-7);
+  border-top: none;
+}
+
+.to:last-child {
+  border-radius: 0 0 14px 14px;
+}
+
+.to:last-child > :hover {
+  border-radius: 0 0 14px 14px;
+}
+
 .post {
   padding: 25px 30px;
   display: flex;
