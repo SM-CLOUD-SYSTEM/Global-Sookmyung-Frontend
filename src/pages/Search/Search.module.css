@@ -1,0 +1,37 @@
+.container {
+  margin-top: 70px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.article {
+  flex: 1;
+}
+
+.search {
+  margin-bottom: 50px;
+}
+
+.title {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--gray-scale-1);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.keyword {
+  color: var(--orange-1);
+}
+
+.underline {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
