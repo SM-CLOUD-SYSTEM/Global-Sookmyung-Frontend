@@ -4,18 +4,22 @@ import styles from './Category.module.css';
 
 const CATEGORIES = Object.values(SEARCH_CATEGORY);
 
-export default function Category({ category, updateCategory }) {
-  const isSelected = (value) => (category === value ? styles.select : null);
+export default function Category({
+  category: currentCategory,
+  updateCategory,
+}) {
+  const isSelected = ({ value }) =>
+    currentCategory.value === value ? styles.select : null;
 
   return (
     <ul className={styles.category}>
-      {CATEGORIES.map(({ label, value }) => (
+      {CATEGORIES.map((category) => (
         <li
-          key={value}
-          className={`${styles.menu} ${isSelected(value)}`}
-          onClick={() => updateCategory(value)}
+          key={category.value}
+          className={`${styles.menu} ${isSelected(category)}`}
+          onClick={() => updateCategory(category)}
         >
-          {label}
+          {category.label}
         </li>
       ))}
     </ul>
