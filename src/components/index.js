@@ -1,4 +1,5 @@
 export { default as ActionInput } from '@components/ActionInput';
+export { default as BoardIndex } from '@components/BoardIndex';
 export { default as Button } from '@components/Button';
 export { default as CheckBox } from '@components/CheckBox';
 export { default as CheckCircle } from '@components/CheckCircle';
