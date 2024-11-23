@@ -6,7 +6,7 @@ import { ReactComponent as LikeIcon } from '@assets/like.svg';
 import styles from './Post.module.css';
 
 export default function Post({ post, to }) {
-  const { postId, title, commentCount, date, writer, likeCount } = post;
+  const { postId, title, commentCount, date, nickname, likeCount } = post;
 
   return (
     <Link className={styles.to} to={to}>
@@ -20,7 +20,7 @@ export default function Post({ post, to }) {
         </div>
         <div className={styles.right}>
           <div>
-            <span className={styles.writer}>{writer}</span>
+            <span className={styles.nickname}>{nickname}</span>
           </div>
           <div>
             <span className={styles.likeCount}>
