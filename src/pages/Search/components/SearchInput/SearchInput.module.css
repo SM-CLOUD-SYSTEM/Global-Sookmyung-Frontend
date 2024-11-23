@@ -10,6 +10,10 @@
   color: var(--gray-scale-1);
 }
 
+.input {
+  flex: 1;
+}
+
 .input::placeholder {
   color: var(--gray-scale-4);
 }
