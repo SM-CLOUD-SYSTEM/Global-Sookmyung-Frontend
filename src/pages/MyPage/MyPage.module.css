@@ -13,3 +13,10 @@
   flex-direction: column;
   gap: 45px;
 }
+
+.myInfo {
+  padding: 26px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
