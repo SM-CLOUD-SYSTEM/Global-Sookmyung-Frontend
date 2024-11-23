@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { Paginator, Post, Profile } from '@components';
 import { BoardHeader, BoardIndex, Notice } from '@pages/Board/components';
@@ -35,13 +35,11 @@ export default function Board() {
             <BoardIndex />
             <ul>
               {POSTS.map((post) => (
-                <Link
-                  className={styles.post}
+                <Post
                   key={post.postId}
+                  post={post}
                   to={Path.getPostPath({ postId: post.postId, pathname })}
-                >
-                  <Post post={post} />
-                </Link>
+                />
               ))}
             </ul>
           </div>
