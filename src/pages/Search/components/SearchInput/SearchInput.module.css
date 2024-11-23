@@ -1,0 +1,26 @@
+.container {
+  width: 540px;
+  padding: 7px 24px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40px;
+  background: var(--gray-scale-8);
+  color: var(--gray-scale-1);
+}
+
+.input::placeholder {
+  color: var(--gray-scale-4);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  transition: 200ms all ease;
+}
+
+.icon:hover {
+  background-color: #ebebeb;
+}
