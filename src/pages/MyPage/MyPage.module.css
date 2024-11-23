@@ -6,5 +6,10 @@
 
 .article {
   flex: 1;
-  background-color: pink;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
 }
