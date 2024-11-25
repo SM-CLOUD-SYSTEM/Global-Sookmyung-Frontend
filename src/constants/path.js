@@ -9,4 +9,7 @@ export const PATH = Object.freeze({
   myPage: '/mypage',
   myPost: '/mypage/my-post',
   bookmark: '/mypage/bookmark',
+  findId: '/account/find-id',
+  findPw: '/account/find-pw',
+  signUp: '/account/signup',
 });
