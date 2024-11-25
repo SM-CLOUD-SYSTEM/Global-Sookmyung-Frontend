@@ -1,0 +1,13 @@
+.icon {
+  width: 47px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  transition: 200ms all ease;
+}
+
+.icon:hover {
+  background-color: var(--gray-scale-8);
+}

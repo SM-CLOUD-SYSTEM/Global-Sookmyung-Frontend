@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import BoardMenu from '@components/Header/BoardMenu.jsx';
 import LoginButton from '@components/Header/LoginButton.jsx';
 import MyPageIcon from '@components/Header/MyPageIcon.jsx';
+import SearchIcon from '@components/Header/SearchIcon.jsx';
 
 import { BOARD, PATH } from '@constants';
 import { ReactComponent as Logo } from '@assets/logo.svg';
-import { ReactComponent as SearchIcon } from '@assets/Header/search.svg';
+
 import { USER } from '@dummy';
 
 import styles from './Header.module.css';
@@ -25,9 +26,7 @@ export default function Header() {
         />
       </ul>
       <div className={styles.icons}>
-        <Link to={PATH.search}>
-          <SearchIcon />
-        </Link>
+        <SearchIcon />
         {USER.isLogin ? <MyPageIcon /> : <LoginButton />}
       </div>
     </header>
