@@ -6,6 +6,8 @@ import Search from '@pages/Search';
 import MyPage from '@pages/MyPage';
 import Login from '@pages/Login';
 import GroupBoard from '@pages/GroupBoard';
+import SignUp from '@pages/SignUp';
+import AccountRecovery from '@pages/AccountRecovery';
 
 import { PATH } from '@constants';
 
@@ -61,6 +63,18 @@ export const routes = [
       {
         path: PATH.bookmark,
         element: <GroupBoard />,
+      },
+      {
+        path: PATH.findId,
+        element: <AccountRecovery />,
+      },
+      {
+        path: PATH.findPw,
+        element: <AccountRecovery />,
+      },
+      {
+        path: PATH.signUp,
+        element: <SignUp />,
       },
     ],
   },

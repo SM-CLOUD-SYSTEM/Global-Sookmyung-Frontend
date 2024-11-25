@@ -1,0 +1,42 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login {
+  width: 460px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  background-color: pink;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  height: 70px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: var(--gray-scale-3);
+  font-size: 17px;
+  font-weight: 300;
+}
