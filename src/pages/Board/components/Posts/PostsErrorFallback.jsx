@@ -1,6 +1,6 @@
 import { ServerErrorFallback } from '@components';
 
-export default function CommentsErrorFallback({ error, resetErrorBoundary }) {
+export default function PostsErrorFallback({ error, resetErrorBoundary }) {
   const { status } = error;
 
   if (status === 401) {
