@@ -1,11 +1,9 @@
 import ProfileImage from '@components/ProfileImage';
 
-import DateFormatter from '@utils/Date.js';
-
 import styles from './Comment.module.css';
 
 export default function Comment({ comment }) {
-  const { profileUrl, nickname, date, content } = comment;
+  const { commentId, author, content, createdAt, isMyComment } = comment;
 
   return (
     <div className={styles.container}>
@@ -14,10 +12,8 @@ export default function Comment({ comment }) {
           <ProfileImage />
         </div>
         <div className={styles.meta}>
-          <span className={styles.nickname}>{nickname}</span>
-          <span className={styles.date}>
-            {DateFormatter.formatDotNotation(date)}
-          </span>
+          <span className={styles.nickname}>{author}</span>
+          <span className={styles.date}>{createdAt}</span>
         </div>
       </div>
       <div className={styles.bottom}>

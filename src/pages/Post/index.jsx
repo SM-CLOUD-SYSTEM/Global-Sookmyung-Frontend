@@ -1,13 +1,17 @@
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useQuery, QueryErrorResetBoundary } from '@tanstack/react-query';
 
 import { usePost } from '@hooks';
 
-import { Profile } from '@components';
+import ErrorPage from '@pages/ErrorPage';
+import { Profile, Loading } from '@components';
 import {
   BoardNavigationHeader,
   BookmarkButton,
   Comments,
+  CommentsErrorFallback,
   CommentInput,
   LikeButton,
   PostHeader,
@@ -55,7 +59,19 @@ export default function Post() {
               </p>
               <CommentInput />
             </div>
-            <Comments />
+
+            <QueryErrorResetBoundary>
+              {({ reset }) => (
+                <ErrorBoundary
+                  FallbackComponent={CommentsErrorFallback}
+                  onReset={reset}
+                >
+                  <Suspense fallback={<Loading />}>
+                    <Comments />
+                  </Suspense>
+                </ErrorBoundary>
+              )}
+            </QueryErrorResetBoundary>
           </div>
         </section>
       </article>

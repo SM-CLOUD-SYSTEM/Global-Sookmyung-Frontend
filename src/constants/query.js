@@ -1,5 +1,6 @@
 export const QUERY_KEY = Object.freeze({
   post: 'post',
+  comments: 'comments',
 });
 
 export const MUTATION_KEY = Object.freeze({
@@ -8,4 +9,5 @@ export const MUTATION_KEY = Object.freeze({
   bookmark: 'bookmark',
   unbookmark: 'unbookmark',
   createPost: 'createPost',
+  createComment: 'createComment',
 });
