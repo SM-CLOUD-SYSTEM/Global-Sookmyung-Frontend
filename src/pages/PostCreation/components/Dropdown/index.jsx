@@ -1,31 +1,31 @@
 import { useState } from 'react';
 
-import Path from '@utils/Path.js';
 import { ReactComponent as DownArrowIcon } from '@assets/downArrow.svg';
 
 import styles from './Dropdown.module.css';
 
-export default function Dropdown({ options = [], setValue, initial }) {
+export default function Dropdown({
+  boardName,
+  options = [],
+  setValue,
+  initial,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen((prev) => !prev);
 
-  const [currentOption, setCurrentOption] = useState(initial ?? options[0]);
   const updateOption = (event) => {
-    const pathname = event.currentTarget.dataset.path;
-    const board = Path.getBoard(pathname);
-
-    setValue(board.id);
-    setCurrentOption(board);
+    const name = event.currentTarget.dataset.name;
+    setValue(name);
     setIsOpen(false);
   };
 
-  const isSelected = (id) => (currentOption.id === id ? styles.select : null);
+  const isSelected = (option) => (option === boardName ? styles.select : null);
 
   return (
     <div className={`${styles.container} ${isOpen && styles.opend}`}>
       <div className={styles.display} onClick={toggle}>
         <div className={styles.wrapper}>
-          <span className={styles.current}>{currentOption.name}</span>
+          <span className={styles.current}>{boardName}</span>
           <DownArrowIcon
             className={styles.icon}
             fill={isOpen ? '#FF743D' : '#808593'}
@@ -33,14 +33,14 @@ export default function Dropdown({ options = [], setValue, initial }) {
         </div>
       </div>
       <ul className={styles.options}>
-        {options.map(({ id, path, name }) => (
+        {options.map((option) => (
           <li
-            className={`${styles.option} ${isSelected(id)}`}
-            key={id}
-            data-path={path}
+            className={`${styles.option} ${isSelected(option)}`}
+            key={option}
+            data-name={option}
             onClick={updateOption}
           >
-            {name}
+            {option}
           </li>
         ))}
       </ul>

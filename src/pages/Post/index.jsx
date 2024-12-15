@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
-import { getPost } from '@apis';
+import { usePost } from '@hooks';
 
 import { Profile } from '@components';
 import {
@@ -21,11 +21,17 @@ import styles from './Post.module.css';
 const { likeCount, bookmarkCount, commentCount } = POST;
 
 export default function Post() {
-  const { postId } = useParams();
-  const { data: post } = useSuspenseQuery({
+  const { postId, isPending } = useParams();
+  const { getPost } = usePost();
+  const { data: post } = useQuery({
     queryKey: [QUERY_KEY.post, postId],
-    queryFn: async () => await getPost({ postId }),
+    queryFn: getPost,
   });
+
+  if (isPending || post === undefined) {
+    return null;
+  }
+
   const { content, isLiked, likeCount, isBookmarked, bookmarkCount } = post;
 
   return (
