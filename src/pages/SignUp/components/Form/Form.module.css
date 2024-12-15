@@ -1,0 +1,35 @@
+.legend {
+  margin-bottom: 22px;
+  color: var(--gray-scale-1, #1e1e1e);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.form {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-scale-7);
+  background: var(--gray-scale-9);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  color: var(--gray-scale-2);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.required {
+  color: var(--orange-main);
+}

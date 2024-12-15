@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -50%);
+  color: var(--gray-scale-3);
+}
+
+.select .label {
+  color: var(--orange-main);
+}
