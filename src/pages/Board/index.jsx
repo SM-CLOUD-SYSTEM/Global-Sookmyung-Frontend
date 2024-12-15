@@ -1,14 +1,17 @@
 import { Suspense, useState, startTransition } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
-import ErrorPage from '@pages/ErrorPage';
-import { BoardIndex, Paginator, Post, Profile } from '@components';
-import { BoardHeader, Notice } from '@pages/Board/components';
+import { BoardIndex, Paginator, Profile, Loading } from '@components';
+import {
+  BoardHeader,
+  Notice,
+  Posts,
+  PostsErrorFallback,
+} from '@pages/Board/components';
 
-import Path from '@utils/Path.js';
 import { BOARD } from '@constants';
-import { POSTS } from '@dummy';
 
 import styles from './Board.module.css';
 
@@ -16,9 +19,11 @@ const START_PAGE = 1;
 const pageCount = 117;
 
 export default function Board() {
-  const [page, setPage] = useState(START_PAGE);
   const { pathname } = useLocation();
-  const { id, title, describe } = BOARD[pathname];
+  const board = BOARD[pathname];
+  const { name, title, describe } = board;
+
+  const [page, setPage] = useState(START_PAGE);
 
   return (
     <section className={styles.container}>
@@ -35,18 +40,18 @@ export default function Board() {
           <BoardHeader />
           <div className={styles.board}>
             <BoardIndex />
-            <ul>
-              {POSTS.map((post) => (
-                <Post
-                  key={post.postId}
-                  post={post}
-                  to={Path.getPostPath({
-                    postId: post.postId,
-                    boardId: id,
-                  })}
-                />
-              ))}
-            </ul>
+            <QueryErrorResetBoundary>
+              {({ reset }) => (
+                <ErrorBoundary
+                  onReset={reset}
+                  FallbackComponent={PostsErrorFallback}
+                >
+                  <Suspense fallback={<Loading />}>
+                    <Posts board={board} />
+                  </Suspense>
+                </ErrorBoundary>
+              )}
+            </QueryErrorResetBoundary>
           </div>
           <Paginator page={page} setPage={setPage} pageCount={pageCount} />
         </div>

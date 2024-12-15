@@ -1,5 +1,6 @@
 export const QUERY_KEY = Object.freeze({
   post: 'post',
+  posts: 'posts',
   comments: 'comments',
 });
 
