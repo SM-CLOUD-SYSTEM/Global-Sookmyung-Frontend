@@ -1,6 +1,7 @@
 import { Input, InputAction } from '@components';
 
 import styles from './Form.module.css';
+import Dropdown from '../../../../components/Dropdown/index.jsx';
 
 export function Legend({ children }) {
   return <h3 className={styles.legend}>{children}</h3>;
@@ -76,5 +77,54 @@ export function InputActionWithLabel({
         disabled={disabled}
       />
     </div>
+  );
+}
+
+export function DropdownWithLabel({
+  label,
+  name,
+  options,
+  value,
+  updateValue,
+  required = false,
+}) {
+  return (
+    <div>
+      <Label required={required}>{label}</Label>
+      <Dropdown
+        name={name}
+        options={options}
+        value={value}
+        updateValue={updateValue}
+      />
+    </div>
+  );
+}
+
+export function InputWithDate({
+  label,
+  name,
+  value,
+  defaultValue,
+  updateValue,
+  clear,
+  placeholder,
+  icon,
+  unit,
+  disabled = false,
+  required = false,
+}) {
+  return (
+    <Input
+      type='number'
+      name={name}
+      value={value}
+      defaultValue={defaultValue}
+      updateValue={updateValue}
+      placeholder={placeholder}
+      icon={icon}
+      disabled={disabled}
+      rightElement={<span className={styles.unit}>{unit}</span>}
+    />
   );
 }

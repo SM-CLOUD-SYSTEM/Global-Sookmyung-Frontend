@@ -1,4 +1,5 @@
 .container {
+  margin-bottom: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,4 +27,18 @@
 .button {
   width: 148px;
   height: 48px;
+}
+
+.birthday {
+  display: flex;
+  gap: 16px;
+}
+
+.birthday label:nth-child(1) {
+  flex: 2 1 0;
+}
+
+.birthday label:nth-child(2),
+.birthday label:nth-child(3) {
+  flex: 1;
 }
