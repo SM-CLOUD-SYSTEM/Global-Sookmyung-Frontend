@@ -24,7 +24,7 @@ export default function Post() {
   const { postId } = useParams();
   const { data: post } = useSuspenseQuery({
     queryKey: [QUERY_KEY.post, postId],
-    queryFn: getPost,
+    queryFn: async () => await getPost({ postId }),
   });
   const { content, isLiked, likeCount, isBookmarked, bookmarkCount } = post;
 
