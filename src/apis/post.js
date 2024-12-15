@@ -9,7 +9,7 @@ export const getPost = async ({ postId }) => {
     title: '안녕하세요',
     content:
       'ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ',
-    isLiked: true,
+    isLiked: false,
     likeCount: 12,
     isBookmarked: false,
     bookmarkCount: 55,
