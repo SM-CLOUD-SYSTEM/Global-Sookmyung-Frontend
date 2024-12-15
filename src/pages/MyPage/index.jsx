@@ -1,5 +1,13 @@
-import { Post } from '@components';
-import { Group, Info, Profile } from '@pages/MyPage/components';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { Post, Loading } from '@components';
+import {
+  Group,
+  Info,
+  Profile,
+  ProfileErrorFallback,
+} from '@pages/MyPage/components';
 
 import Path from '@utils/Path.js';
 import { PATH } from '@constants';
@@ -17,16 +25,14 @@ export default function MyPage() {
 
   return (
     <section className={styles.container}>
-      <Profile />
+      <ErrorBoundary FallbackComponent={ProfileErrorFallback}>
+        <Suspense fallback={<Loading />}>
+          <Profile />
+        </Suspense>
+      </ErrorBoundary>
+
       <article className={styles.article}>
         <div className={styles.groups}>
-          <Group title='내 정보'>
-            <div className={styles.myInfo}>
-              <Info Icon={SchoolIcon} label='학교' value={INFO.school} />
-              <Info Icon={BookIcon} label='학과' value={INFO.major} />
-              <Info Icon={CallIcon} label='번호' value={INFO.number} />
-            </div>
-          </Group>
           <Group
             title='내가 쓴 글'
             to={{
