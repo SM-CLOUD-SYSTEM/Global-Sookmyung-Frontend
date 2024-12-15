@@ -36,7 +36,8 @@ export default function PostCreation() {
     mutationFn: createPost,
     onSuccess: () => {
       alert('게시글 작성 완료!');
-      queryClient.invalidateQueries([QUERY_KEY.posts, boardName]);
+      const type = boardName.split(' ').join('_').toUpperCase();
+      queryClient.invalidateQueries([QUERY_KEY.posts, type]);
 
       navigate(-1);
     },
