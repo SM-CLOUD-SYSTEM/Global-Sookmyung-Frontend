@@ -5,4 +5,6 @@ export const QUERY_KEY = Object.freeze({
 export const MUTATION_KEY = Object.freeze({
   like: 'like',
   unlike: 'unlike',
+  bookmark: 'bookmark',
+  unbookmark: 'unbookmark',
 });
