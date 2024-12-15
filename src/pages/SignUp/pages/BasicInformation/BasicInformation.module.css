@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 68px;
+}
+
+.index {
+  display: flex;
+  gap: 25px;
+}
+
+.form {
+  width: 459px;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 148px;
+  height: 48px;
+}
