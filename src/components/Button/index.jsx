@@ -3,6 +3,7 @@ import { BUTTON_SIZE } from '@constants';
 import styles from './Button.module.css';
 
 export default function Button({
+  className,
   children,
   size = BUTTON_SIZE.regular,
   onClick,
@@ -10,7 +11,7 @@ export default function Button({
 }) {
   return (
     <button
-      className={`${styles.button} ${styles[size]}`}
+      className={`${styles.button} ${styles[size]} ${className}`}
       type='button'
       onClick={onClick}
       disabled={disabled}

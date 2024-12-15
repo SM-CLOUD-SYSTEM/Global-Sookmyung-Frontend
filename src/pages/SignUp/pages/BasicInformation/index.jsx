@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import { useSignupContext } from '@contexts';
 import { Button, CheckCircle, WhiteButton, InputAction } from '@components';
 import {
   ArrowIndex,
@@ -7,28 +10,39 @@ import {
   Label,
   InputWithLabel,
   InputActionWithLabel,
+  DropdownWithLabel,
+  InputWithDate,
 } from '@pages/SignUp/components';
+import { COUNTRY_LIST, HOME_UNIVERSITY_LIST } from '@constants';
 
 import styles from './BasicInformation.module.css';
 
-export default function BasicInformation({
-  formData,
-  updateFormData,
-  onPrev,
-  onNext,
-}) {
+export default function BasicInformation({ onPrev, onNext }) {
+  const [rePassword, setRePassword] = useState('');
+  const { formData, updateFormData } = useSignupContext();
   const {
     email,
     password,
-    rePassword,
     lastName,
     firstName,
-    birthDay,
+    year,
+    month,
+    date,
     nickname,
     isInternational,
-    nationality,
-    homeUniversity,
+    nationalityName,
+    homeUniversityName,
   } = formData;
+
+  const isValid =
+    email &&
+    password &&
+    lastName &&
+    firstName &&
+    year &&
+    month &&
+    date &&
+    nickname;
 
   return (
     <div className={styles.container}>
@@ -42,9 +56,7 @@ export default function BasicInformation({
           <Group>
             <InputWithLabel
               label='아이디'
-              // defaultValue={email}
-              value={email}
-              updateValue={updateFormData}
+              defaultValue={email}
               required
               disabled
             />
@@ -62,14 +74,14 @@ export default function BasicInformation({
               name='rePassword'
               label='비밀번호 재입력'
               value={rePassword}
-              updateValue={updateFormData}
+              updateValue={(event) => setRePassword(event.target.value)}
               placeholder='8자 이상의 영문 대소문자/숫자/특수문자'
               required
             />
           </Group>
         </Form>
 
-        {/* <Form legend='기본정보 입력'>
+        <Form legend='기본정보 입력'>
           <Group>
             <InputWithLabel
               name='lastName'
@@ -83,7 +95,7 @@ export default function BasicInformation({
               name='firstName'
               label='이름'
               value={firstName}
-              updateValue={(event) => setRePassword(event.target.value)}
+              updateValue={updateFormData}
               placeholder='이름을 입력해 주세요'
               required
             />
@@ -97,6 +109,29 @@ export default function BasicInformation({
               buttonText='중복확인'
               required
             />
+            <div>
+              <Label required>생년월일</Label>
+              <div className={styles.birthday}>
+                <InputWithDate
+                  name='year'
+                  value={year}
+                  updateValue={updateFormData}
+                  unit='년'
+                />
+                <InputWithDate
+                  name='month'
+                  value={month}
+                  updateValue={updateFormData}
+                  unit='월'
+                />
+                <InputWithDate
+                  name='date'
+                  value={date}
+                  updateValue={updateFormData}
+                  unit='일'
+                />
+              </div>
+            </div>
             <CheckCircle
               name='isInternational'
               checked={isInternational}
@@ -105,14 +140,52 @@ export default function BasicInformation({
               유학생이신가요?
             </CheckCircle>
           </Group>
-        </Form> */}
+          {isInternational && (
+            <Group>
+              <DropdownWithLabel
+                label='국적'
+                name='nationalityName'
+                value={nationalityName}
+                options={COUNTRY_LIST}
+                updateValue={updateFormData}
+                required
+              />
+              <DropdownWithLabel
+                label='본교'
+                name='homeUniversityName'
+                value={homeUniversityName}
+                options={HOME_UNIVERSITY_LIST}
+                updateValue={updateFormData}
+                required
+              />
+            </Group>
+          )}
+        </Form>
       </div>
       <div className={styles.buttons}>
         <div className={styles.button}>
           <WhiteButton onClick={onPrev}>이전</WhiteButton>
         </div>
         <div className={styles.button}>
-          <Button onClick={onNext}> 다음</Button>
+          <Button
+            onClick={async () => {
+              // await signUp({
+              //   email,
+              //   password,
+              //   firstName,
+              //   lastName,
+              //   birthDate: `${year}-${month}-${date}`,
+              //   nickname,
+              //   isInternational,
+              //   nationalityName,
+              //   homeUniversityName,
+              // });
+              onNext();
+            }}
+            disabled={!isValid}
+          >
+            완료
+          </Button>
         </div>
       </div>
     </div>

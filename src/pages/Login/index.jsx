@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button } from '@components';
-import { InputWithReset } from '@pages/Login/components';
+import { Button, InputWithClear } from '@components';
 
 import { PATH } from '@constants';
 import { ReactComponent as Logo } from '@assets/logo.svg';
@@ -21,17 +20,19 @@ export default function Login() {
         <Logo className={styles.logo} />
         <div className={styles.login}>
           <div className={styles.input}>
-            <InputWithReset
+            <InputWithClear
               type='text'
               value={id}
-              setValue={setId}
+              updateValue={(event) => setId(event.target.value)}
+              clear={() => setId('')}
               placeholder='아이디'
               Icon={PersonIcon}
             />
-            <InputWithReset
+            <InputWithClear
               type='password'
               value={pw}
-              setValue={setPw}
+              updateValue={(event) => setPw(event.target.value)}
+              clear={() => setPw('')}
               placeholder='비밀번호'
               Icon={KeyIcon}
             />
