@@ -71,14 +71,3 @@
   line-height: 20px;
   letter-spacing: 0.28px;
 }
-
-.count {
-  display: flex;
-  justify-content: space-between;
-  gap: 35px;
-  color: var(--gray-scale-5);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 20px;
-  letter-spacing: 0.28px;
-}

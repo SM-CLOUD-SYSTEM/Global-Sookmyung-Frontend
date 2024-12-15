@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import ErrorPage from '@pages/ErrorPage';
 import { BoardIndex, Paginator, Post, Profile } from '@components';
 import { BoardHeader, Notice } from '@pages/Board/components';
 
@@ -35,14 +36,18 @@ export default function Board() {
             <BoardIndex />
             <ul>
               {POSTS.map((post) => (
-                <Post
-                  key={post.postId}
-                  post={post}
-                  to={Path.getPostPath({
-                    postId: post.postId,
-                    boardId: id,
-                  })}
-                />
+                <ErrorBoundary FallbackComponent={ErrorPage}>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <Post
+                      key={post.postId}
+                      post={post}
+                      to={Path.getPostPath({
+                        postId: post.postId,
+                        boardId: id,
+                      })}
+                    />
+                  </Suspense>
+                </ErrorBoundary>
               ))}
             </ul>
           </div>
