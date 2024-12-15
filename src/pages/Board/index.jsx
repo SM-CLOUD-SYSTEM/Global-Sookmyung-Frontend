@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, startTransition } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -37,18 +37,14 @@ export default function Board() {
             <BoardIndex />
             <ul>
               {POSTS.map((post) => (
-                <ErrorBoundary FallbackComponent={ErrorPage}>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <Post
-                      key={post.postId}
-                      post={post}
-                      to={Path.getPostPath({
-                        postId: post.postId,
-                        boardId: id,
-                      })}
-                    />
-                  </Suspense>
-                </ErrorBoundary>
+                <Post
+                  key={post.postId}
+                  post={post}
+                  to={Path.getPostPath({
+                    postId: post.postId,
+                    boardId: id,
+                  })}
+                />
               ))}
             </ul>
           </div>
