@@ -7,4 +7,5 @@ export const MUTATION_KEY = Object.freeze({
   unlike: 'unlike',
   bookmark: 'bookmark',
   unbookmark: 'unbookmark',
+  createPost: 'createPost',
 });

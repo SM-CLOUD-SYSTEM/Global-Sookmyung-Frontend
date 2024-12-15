@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 
+import { usePost } from '@hooks';
 import { Button, Profile, WhiteButton } from '@components';
 import { Dropdown } from '@pages/PostCreation/components';
 
 import Path from '@utils/Path.js';
-import { BOARD } from '@constants';
+import { BOARD, MUTATION_KEY } from '@constants';
 
 import styles from './PostCreation.module.css';
 
-const [_, ...boards] = Object.values(BOARD);
+const [_, ...boards] = Object.values(BOARD).map(({ name }) => name);
 
 export default function PostCreation() {
   const { pathname } = useLocation();
@@ -18,14 +20,27 @@ export default function PostCreation() {
   const navigate = useNavigate();
   const back = () => navigate(-1);
 
-  const [boardId, setBoardId] = useState(board.id);
+  const [boardName, setBoardName] = useState(board.name);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
   const updateTitle = (event) => setTitle(event.target.value);
   const updateContent = (event) => setContent(event.target.value);
 
-  const canCreate = boardId && title && content;
+  const canCreate = boardName && title && content;
+
+  const { createPost } = usePost();
+  const create = useMutation({
+    mutationKey: [MUTATION_KEY.createPost],
+    mutationFn: createPost,
+    onSuccess: () => {
+      alert('게시글 작성 완료!');
+      navigate(-1);
+    },
+    onError: (error) => {
+      alert(error.response.data.message);
+    },
+  });
 
   return (
     <section className={styles.container}>
@@ -39,8 +54,9 @@ export default function PostCreation() {
               </div>
               <div className={styles.right}>
                 <Dropdown
+                  boardName={boardName}
                   options={boards}
-                  setValue={setBoardId}
+                  setValue={setBoardName}
                   initial={board}
                 />
               </div>
@@ -72,7 +88,14 @@ export default function PostCreation() {
         <div className={styles.buttons}>
           <div>
             <WhiteButton onClick={back}>취소</WhiteButton>
-            <Button disabled={!canCreate}>등록</Button>
+            <Button
+              onClick={async () =>
+                await create.mutate({ boardName, title, content })
+              }
+              disabled={!canCreate}
+            >
+              등록
+            </Button>
           </div>
         </div>
       </article>

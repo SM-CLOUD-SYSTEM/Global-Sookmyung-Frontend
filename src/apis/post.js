@@ -15,3 +15,12 @@ export const getPost = async ({ postId }) => {
     bookmarkCount: 55,
   };
 };
+
+export const createPost = async ({ type, title, content }) => {
+  const response = await authAxios.post('/posts', {
+    type,
+    title,
+    content,
+  });
+  return response;
+};
