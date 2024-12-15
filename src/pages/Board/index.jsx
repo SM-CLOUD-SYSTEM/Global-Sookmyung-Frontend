@@ -1,5 +1,6 @@
 import { Suspense, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import ErrorPage from '@pages/ErrorPage';
 import { BoardIndex, Paginator, Post, Profile } from '@components';
