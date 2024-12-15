@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 
 import { usePost } from '@hooks';
 import { Button, Profile, WhiteButton } from '@components';
@@ -29,12 +29,15 @@ export default function PostCreation() {
 
   const canCreate = boardName && title && content;
 
+  const queryClient = useQueryClient();
   const { createPost } = usePost();
   const create = useMutation({
     mutationKey: [MUTATION_KEY.createPost],
     mutationFn: createPost,
     onSuccess: () => {
       alert('게시글 작성 완료!');
+      queryClient.invalidateQueries([QUERY_KEY.posts, boardName]);
+
       navigate(-1);
     },
     onError: (error) => {
