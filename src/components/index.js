@@ -1,4 +1,5 @@
 export { default as ActionInput } from '@components/ActionInput';
+export { default as AuthErrorFallback } from '@components/AuthErrorFallback';
 export { default as BoardIndex } from '@components/BoardIndex';
 export { default as Button } from '@components/Button';
 export { default as CheckBox } from '@components/CheckBox';

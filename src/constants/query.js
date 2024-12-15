@@ -3,6 +3,7 @@ export const QUERY_KEY = Object.freeze({
   posts: 'posts',
   comments: 'comments',
   profile: 'profile',
+  search: 'search',
 });
 
 export const MUTATION_KEY = Object.freeze({
