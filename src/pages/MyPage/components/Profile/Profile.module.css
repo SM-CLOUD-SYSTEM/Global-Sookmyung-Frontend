@@ -16,8 +16,7 @@
 /* top */
 .top {
   height: 357px;
-  background: url(https://s3-alpha-sig.figma.com/img/be85/35b8/b4c6ba5e1c466b4c67bacfc6d008e9cc?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H4spJyRMXxkhEU3X3l~c~ymmL434iYHlxD3ZqcVZYMLRe9G7PYpRV~hSmnEZslc-LV3dA9z99E4Q5e~hypZv3NJ6-jSMHkSHs8p5bBRHc6jKv9saCqE1oO~A1CC4P7bis1CbvYgj2CwvDA8Oy06XvBohofF9tE0H1taSfQ2bmQRXU4PzdhyTrXRqkNCgLWc0kNDSJj3rDQe9Je8~b~oKikw3kWc8flI7rEaaW~9Y8gXm4Wxcl-kBnJ8PqGSHNuwEoDyYBq~d47SYVPU9lpk62rYJcq608MgFg606tiheczxA9v2t~g-3Zzdl~1pwvvfD5t5w6DSEagDBNoWA~0L0-Q__)
-    top left/cover;
+  background: url('@assets/profileBackground.svg') top left/cover;
 }
 
 /* bottom */

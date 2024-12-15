@@ -11,5 +11,6 @@ export { default as Loading } from '@components/Loading';
 export { default as Paginator } from '@components/Paginator';
 export { default as Post } from '@components/Post';
 export { default as Profile } from '@components/Profile';
+export { default as ProfileErrorFallback } from '@components/Profile/ProfileErrorFallback';
 export { default as ServerErrorFallback } from '@components/ServerErrorFallback';
 export { default as WhiteButton } from '@components/WhiteButton';
