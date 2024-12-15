@@ -1,0 +1,15 @@
+.message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success {
+  color: var(--green-success);
+  font-size: 14px;
+}
+
+.error {
+  color: var(--orange-1);
+  font-size: 14px;
+}

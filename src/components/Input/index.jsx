@@ -7,25 +7,30 @@ import { ReactComponent as Person } from '@assets/Input/person.svg';
 import styles from './Input.module.css';
 
 export default function Input({
+  name,
   value,
-  setValue,
+  defaultValue,
+  updateValue,
   placeholder,
   icon,
   hasClearButton = false,
+  disabled = false,
 }) {
   const clear = () => setValue('');
-  const update = (event) => setValue(event.target.value);
 
   return (
     <label className={styles.container}>
       {icon === INPUT_ICON.key && <Key />}
       {icon === INPUT_ICON.person && <Person />}
       <input
+        name={name}
         className={styles.input}
         type='text'
         value={value}
-        onChange={update}
+        defaultValue={defaultValue}
+        onChange={updateValue}
         placeholder={placeholder}
+        disabled={disabled}
       />
       {hasClearButton && <Clear className={styles.cancel} onClick={clear} />}
     </label>
