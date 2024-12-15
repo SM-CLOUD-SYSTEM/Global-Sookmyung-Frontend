@@ -3,7 +3,13 @@ import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
-import { BoardIndex, Paginator, Profile, Loading } from '@components';
+import {
+  BoardIndex,
+  Paginator,
+  Profile,
+  ProfileErrorFallback,
+  Loading,
+} from '@components';
 import {
   BoardHeader,
   Notice,
@@ -27,7 +33,19 @@ export default function Board() {
 
   return (
     <section className={styles.container}>
-      <Profile />
+      <QueryErrorResetBoundary>
+        {({ reset }) => (
+          <ErrorBoundary
+            onReset={reset}
+            FallbackComponent={ProfileErrorFallback}
+          >
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
+          </ErrorBoundary>
+        )}
+      </QueryErrorResetBoundary>
+
       <article className={styles.article}>
         <div className={styles.top}>
           <h1 className={styles.title}>{title}</h1>

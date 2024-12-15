@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
 import { useSearch } from '@hooks';
-import { BoardIndex, Post, Paginator, Profile } from '@components';
+import {
+  BoardIndex,
+  Post,
+  Paginator,
+  Profile,
+  ProfileErrorFallback,
+  Loading,
+} from '@components';
 import { Category, SearchInput } from '@pages/Search/components';
 
 import Path from '@utils/Path.js';
@@ -15,7 +24,18 @@ export default function Search() {
 
   return (
     <section className={styles.container}>
-      <Profile />
+      <QueryErrorResetBoundary>
+        {({ reset }) => (
+          <ErrorBoundary
+            onReset={reset}
+            FallbackComponent={ProfileErrorFallback}
+          >
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
+          </ErrorBoundary>
+        )}
+      </QueryErrorResetBoundary>
       <article className={styles.article}>
         <div className={styles.search}>
           <div className={styles.title}>
