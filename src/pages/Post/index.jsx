@@ -1,3 +1,8 @@
+import { useParams } from 'react-router-dom';
+import { useSuspenseQuery } from '@tanstack/react-query';
+
+import { getPost } from '@apis';
+
 import { Profile } from '@components';
 import {
   BoardNavigationHeader,
@@ -8,6 +13,7 @@ import {
   PostHeader,
 } from '@pages/Post/components';
 
+import { QUERY_KEY } from '@constants';
 import { POST } from '@dummy';
 
 import styles from './Post.module.css';
@@ -15,6 +21,13 @@ import styles from './Post.module.css';
 const { likeCount, bookmarkCount, commentCount } = POST;
 
 export default function Post() {
+  const { postId } = useParams();
+  const { data: post } = useSuspenseQuery({
+    queryKey: [QUERY_KEY.post, postId],
+    queryFn: getPost,
+  });
+  const { content, isLiked, likeCount, isBookmarked, bookmarkCount } = post;
+
   return (
     <section className={styles.container}>
       <Profile />
@@ -22,11 +35,11 @@ export default function Post() {
         <BoardNavigationHeader />
         <section className={styles.wrapper}>
           <div className={styles.top}>
-            <PostHeader post={POST} />
-            <p className={styles.content}>{POST.content}</p>
+            <PostHeader post={post} />
+            <p className={styles.content}>{content}</p>
             <div className={styles.buttons}>
-              <LikeButton count={likeCount} />
-              <BookmarkButton count={bookmarkCount} />
+              <LikeButton liked={isLiked} count={likeCount} />
+              <BookmarkButton bookmarked={isBookmarked} count={bookmarkCount} />
             </div>
           </div>
           <div className={styles.bottom}>
