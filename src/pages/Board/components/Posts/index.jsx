@@ -17,6 +17,8 @@ export default function Posts({ board }) {
     queryFn: async () => await getPosts({ postType }),
   });
 
+  console.log(posts);
+
   return (
     <ul>
       {posts.map((post) => (
