@@ -36,6 +36,7 @@ export default function BasicInformation({ onPrev, onNext }) {
     isInternational,
     nationalityName,
     homeUniversityName,
+    guestToken,
   } = formData;
 
   const isValid =
@@ -201,6 +202,7 @@ export default function BasicInformation({ onPrev, onNext }) {
                   isInternational,
                   nationalityName,
                   homeUniversityName,
+                  guestToken,
                 });
                 onNext();
                 alert('회원가입 완료!');
