@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 import { BoardIndex, Button, Paginator, Post } from '@components';
 import Path from '@utils/Path.js';
 import { PATH } from '@constants';
 import { ReactComponent as BackIcon } from '@assets/backArrow.svg';
 
+import { QUERY_KEY } from '@constants';
 import { MY_POSTS, BOOKMARK_POSTS } from '@dummy';
 
 import styles from './GroupBoard.module.css';
@@ -25,6 +27,15 @@ export default function GroupBoard() {
 
   const isSelected = (value) => (value === category ? styles.select : null);
   const POSTS = pathname === PATH.myPost ? MY_POSTS : BOOKMARK_POSTS;
+
+  // const { data, isPending, error } = useQuery({
+  //   querykey: [QUERY_KEY.mypageList, pathname],
+  //   queryFn: async () => await mypageList({ pathname }),
+  // });
+
+  // if (isPending) {
+  //   return null;
+  // }
 
   const navigate = useNavigate();
   const back = () => navigate(-1);
