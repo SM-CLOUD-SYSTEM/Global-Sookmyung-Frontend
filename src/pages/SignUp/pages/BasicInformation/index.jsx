@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { checkNicknameDuplication } from '@apis';
+
 import { useSignupContext } from '@contexts';
 import { Button, CheckCircle, WhiteButton, InputAction } from '@components';
 import {
@@ -12,6 +14,7 @@ import {
   InputActionWithLabel,
   DropdownWithLabel,
   InputWithDate,
+  Message,
 } from '@pages/SignUp/components';
 import { COUNTRY_LIST, HOME_UNIVERSITY_LIST } from '@constants';
 
@@ -19,6 +22,7 @@ import styles from './BasicInformation.module.css';
 
 export default function BasicInformation({ onPrev, onNext }) {
   const [rePassword, setRePassword] = useState('');
+  const [nicknameCheckData, setNicknameCheckData] = useState({});
   const { formData, updateFormData } = useSignupContext();
   const {
     email,
@@ -42,7 +46,8 @@ export default function BasicInformation({ onPrev, onNext }) {
     year &&
     month &&
     date &&
-    nickname;
+    nickname &&
+    nicknameCheckData.isSuccess;
 
   return (
     <div className={styles.container}>
@@ -99,16 +104,32 @@ export default function BasicInformation({ onPrev, onNext }) {
               placeholder='이름을 입력해 주세요'
               required
             />
-            <InputActionWithLabel
-              name='nickname'
-              label='닉네임'
-              value={nickname}
-              updateValue={updateFormData}
-              placeholder='닉네임을 입력해 주세요'
-              onClick={() => {}}
-              buttonText='중복확인'
-              required
-            />
+            <div>
+              <InputActionWithLabel
+                name='nickname'
+                label='닉네임'
+                value={nickname}
+                updateValue={(event) => {
+                  updateFormData(event);
+                  setNicknameCheckData((prev) => ({
+                    ...prev,
+                    isSuccess: undefined,
+                  }));
+                }}
+                placeholder='닉네임을 입력해 주세요'
+                onClick={async () => {
+                  const data = await checkNicknameDuplication({ nickname });
+
+                  setNicknameCheckData(data);
+                }}
+                buttonText='중복확인'
+                required
+              />
+              <Message
+                text={nicknameCheckData?.message}
+                condition={nicknameCheckData?.isSuccess}
+              />
+            </div>
             <div>
               <Label required>생년월일</Label>
               <div className={styles.birthday}>
