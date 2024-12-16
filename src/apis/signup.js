@@ -60,7 +60,7 @@ export const checkEmailCode = async ({ email, code }) => {
       email,
       code,
     });
-    const { accessToken: guestToken } = response?.result.data;
+    const { accessToken: guestToken } = response?.data.data;
 
     return {
       message: '인증이 완료되었습니다',
