@@ -10,7 +10,9 @@ import styles from './InputWithClear.module.css';
 
 export default function InputWithClear({
   name,
+  type,
   value,
+
   defaultValue,
   updateValue,
   clear,
@@ -22,6 +24,7 @@ export default function InputWithClear({
   return (
     <Input
       name={name}
+      type={type}
       value={value}
       defaultValue={defaultValue}
       updateValue={updateValue}
