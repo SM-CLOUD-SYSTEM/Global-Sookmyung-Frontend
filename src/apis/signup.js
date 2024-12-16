@@ -1,5 +1,43 @@
 import { defaultAxios } from '@/axios';
 
+export const signup = async ({
+  email,
+  password,
+  firstName,
+  lastName,
+  birthDate,
+  nickname,
+  isInternational,
+  nationalityName,
+  homeUniversityName,
+  guestToken,
+}) => {
+  const response = await defaultAxios.post(
+    '/auth/sign-up',
+    {
+      email,
+      password,
+      firstName,
+      lastName,
+      birthDate,
+      nickname,
+      isInternational,
+      ...(isInternational && {
+        nationalityName,
+        homeUniversityName,
+      }),
+    },
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${guestToken}`,
+      },
+    }
+  );
+
+  return response;
+};
+
 export const sendEmailCode = async ({ email }) => {
   try {
     const response = await defaultAxios.post('/auth/issue/code', { email });
