@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { sendEmailCode } from '@apis';
+import { sendEmailCode, checkEmailCode } from '@apis';
 
 import { useSignupContext } from '@contexts';
 
@@ -64,10 +64,14 @@ export default function EmailVerification({ onNext }) {
               updateValue={(event) => setCode(event.target.value)}
               placeholder='전송된 인증 코드를 입력해 주세요'
               onClick={async () => {
-                // const data = await checkCode();
-                // setCodeData(data);
+                const data = await checkEmailCode({ email, code });
+
+                setCodeData(data);
                 updateFormData({
-                  target: { name: 'isInvalidEmail', value: false },
+                  target: { name: 'guestToken', value: data?.guestToken },
+                });
+                updateFormData({
+                  target: { name: 'isInvalidEmail', value: !data.isSuccess },
                 });
               }}
               buttonText='확인'

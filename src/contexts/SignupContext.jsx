@@ -16,6 +16,7 @@ export function SignupContextProvider({ children }) {
     isInternational: false,
     nationalityName: '',
     homeUniversityName: '',
+    guestToken: '',
   });
   const updateFormData = (event) => {
     const { name, value } = event.target;
@@ -24,6 +25,7 @@ export function SignupContextProvider({ children }) {
   const value = useMemo(() => ({ formData, updateFormData }), [formData]);
 
   console.log(formData);
+
   return (
     <SignupContext.Provider value={value}>{children}</SignupContext.Provider>
   );
