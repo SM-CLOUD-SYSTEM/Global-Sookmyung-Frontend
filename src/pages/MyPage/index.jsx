@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
 import { Post, Loading } from '@components';
 import {
@@ -7,6 +8,10 @@ import {
   Info,
   Profile,
   ProfileErrorFallback,
+  MyPosts,
+  MyPostsErrorFallback,
+  BookmarkedPosts,
+  BookmarkedPostsErrorFallback,
 } from '@pages/MyPage/components';
 
 import Path from '@utils/Path.js';
@@ -33,40 +38,30 @@ export default function MyPage() {
 
       <article className={styles.article}>
         <div className={styles.groups}>
-          <Group
-            title='내가 쓴 글'
-            to={{
-              path: PATH.myPost,
-              label: '전체보기',
-            }}
-          >
-            {TOP5_MY_POSTS.map((post) => (
-              <Post
-                post={post}
-                to={Path.getPostPath({
-                  postId: post.postId,
-                  boardId: post.boardId,
-                })}
-              />
-            ))}
-          </Group>
-          <Group
-            title='즐겨찾기한 글'
-            to={{
-              path: PATH.bookmark,
-              label: '전체보기',
-            }}
-          >
-            {TOP5_BOOKMARK_POSTS.map((post) => (
-              <Post
-                post={post}
-                to={Path.getPostPath({
-                  postId: post.postId,
-                  boardId: post.boardId,
-                })}
-              />
-            ))}
-          </Group>
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundary
+                onReset={reset}
+                FallbackComponent={MyPostsErrorFallback}
+              >
+                <Suspense fallback={<Loading />}>
+                  <MyPosts />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+          </QueryErrorResetBoundary>
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundary
+                onReset={reset}
+                FallbackComponent={BookmarkedPostsErrorFallback}
+              >
+                <Suspense fallback={<Loading />}>
+                  <BookmarkedPosts />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+          </QueryErrorResetBoundary>
         </div>
       </article>
     </section>
