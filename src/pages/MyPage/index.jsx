@@ -10,6 +10,8 @@ import {
   ProfileErrorFallback,
   MyPosts,
   MyPostsErrorFallback,
+  BookmarkedPosts,
+  BookmarkedPostsErrorFallback,
 } from '@pages/MyPage/components';
 
 import Path from '@utils/Path.js';
@@ -48,23 +50,18 @@ export default function MyPage() {
               </ErrorBoundary>
             )}
           </QueryErrorResetBoundary>
-          <Group
-            title='즐겨찾기한 글'
-            to={{
-              path: PATH.bookmark,
-              label: '전체보기',
-            }}
-          >
-            {TOP5_BOOKMARK_POSTS.map((post) => (
-              <Post
-                post={post}
-                to={Path.getPostPath({
-                  postId: post.postId,
-                  boardId: post.boardId,
-                })}
-              />
-            ))}
-          </Group>
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundary
+                onReset={reset}
+                FallbackComponent={BookmarkedPostsErrorFallback}
+              >
+                <Suspense fallback={<Loading />}>
+                  <BookmarkedPosts />
+                </Suspense>
+              </ErrorBoundary>
+            )}
+          </QueryErrorResetBoundary>
         </div>
       </article>
     </section>
