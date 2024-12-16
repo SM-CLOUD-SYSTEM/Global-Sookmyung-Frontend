@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { checkNicknameDuplication } from '@apis';
+import { checkNicknameDuplication, signup } from '@apis';
 
 import { useSignupContext } from '@contexts';
 import { Button, CheckCircle, WhiteButton, InputAction } from '@components';
@@ -190,18 +190,23 @@ export default function BasicInformation({ onPrev, onNext }) {
         <div className={styles.button}>
           <Button
             onClick={async () => {
-              // await signUp({
-              //   email,
-              //   password,
-              //   firstName,
-              //   lastName,
-              //   birthDate: `${year}-${month}-${date}`,
-              //   nickname,
-              //   isInternational,
-              //   nationalityName,
-              //   homeUniversityName,
-              // });
-              onNext();
+              try {
+                await signup({
+                  email,
+                  password,
+                  firstName,
+                  lastName,
+                  birthDate: `${year}-${month}-${date}`,
+                  nickname,
+                  isInternational,
+                  nationalityName,
+                  homeUniversityName,
+                });
+                onNext();
+                alert('회원가입 완료!');
+              } catch (error) {
+                alert('잠시 후 다시 시도해주세요');
+              }
             }}
             disabled={!isValid}
           >
