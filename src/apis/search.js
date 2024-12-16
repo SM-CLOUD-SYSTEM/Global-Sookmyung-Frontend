@@ -6,5 +6,5 @@ export const getSearchs = async ({ searchWord }) => {
       searchWord,
     },
   });
-  return response?.result.data;
+  return response?.data.data;
 };

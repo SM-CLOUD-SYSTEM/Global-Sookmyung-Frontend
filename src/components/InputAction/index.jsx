@@ -7,6 +7,7 @@ export default function InputAction({
   placeholder,
   onClick,
   buttonText,
+  disabled = false,
 }) {
   return (
     <label className={styles.container}>
@@ -18,7 +19,7 @@ export default function InputAction({
         onChange={updateValue}
         placeholder={placeholder}
       />
-      <button className={styles.button} onClick={onClick}>
+      <button className={styles.button} onClick={onClick} disabled={disabled}>
         {buttonText}
       </button>
     </label>
