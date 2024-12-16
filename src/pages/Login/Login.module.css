@@ -40,7 +40,7 @@
 .links {
   margin: 16px 15px 0 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .link {
