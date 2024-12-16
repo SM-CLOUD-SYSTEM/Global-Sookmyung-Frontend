@@ -4,6 +4,8 @@ export const QUERY_KEY = Object.freeze({
   comments: 'comments',
   profile: 'profile',
   search: 'search',
+  mypageList: 'mypageList',
+  myPosts: 'myPosts',
 });
 
 export const MUTATION_KEY = Object.freeze({
