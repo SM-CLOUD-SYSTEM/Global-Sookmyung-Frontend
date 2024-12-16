@@ -5,3 +5,4 @@ export * from './like.js';
 export * from './login.js';
 export * from './profile.js';
 export * from './search.js';
+export * from './signup.js';
