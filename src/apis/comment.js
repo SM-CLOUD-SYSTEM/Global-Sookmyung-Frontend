@@ -2,7 +2,7 @@ import { authAxios } from '@/axios';
 
 export const getComments = async ({ postId }) => {
   const response = await authAxios.get(`/comments/posts/${postId}`);
-  return response?.result.data;
+  return response?.data.data;
 };
 
 export const createComment = async ({ postId, content }) => {
