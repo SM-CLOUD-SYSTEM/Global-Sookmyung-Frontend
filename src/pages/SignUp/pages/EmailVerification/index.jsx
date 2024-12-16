@@ -22,6 +22,8 @@ export default function EmailVerification({ onNext }) {
   const [code, setCode] = useState('');
   const [emailData, setEmailData] = useState({});
   const [codeData, setCodeData] = useState({});
+  const [isEmailLoading, setIsEmailLoading] = useState(false);
+  const [isCodeLoading, setIsCodeLoading] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -41,16 +43,23 @@ export default function EmailVerification({ onNext }) {
               updateValue={(event) => setEmail(event.target.value)}
               placeholder='이메일을 입력해 주세요'
               onClick={async () => {
-                const data = await sendEmailCode({ email });
-                setEmailData(data);
-                updateFormData({
-                  target: { name: 'email', value: email },
-                });
-                updateFormData({
-                  target: { name: 'isInvalidEmail', value: true },
-                });
+                try {
+                  setIsEmailLoading(true);
+                  const data = await sendEmailCode({ email });
+                  setEmailData(data);
+                  updateFormData({
+                    target: { name: 'email', value: email },
+                  });
+                  updateFormData({
+                    target: { name: 'isInvalidEmail', value: true },
+                  });
+                } catch (error) {
+                } finally {
+                  setIsEmailLoading(false);
+                }
               }}
               buttonText='입력완료'
+              disabled={isEmailLoading}
             />
             <Message
               text={emailData?.message}
@@ -64,17 +73,24 @@ export default function EmailVerification({ onNext }) {
               updateValue={(event) => setCode(event.target.value)}
               placeholder='전송된 인증 코드를 입력해 주세요'
               onClick={async () => {
-                const data = await checkEmailCode({ email, code });
+                try {
+                  setIsCodeLoading(true);
+                  const data = await checkEmailCode({ email, code });
 
-                setCodeData(data);
-                updateFormData({
-                  target: { name: 'guestToken', value: data?.guestToken },
-                });
-                updateFormData({
-                  target: { name: 'isInvalidEmail', value: !data.isSuccess },
-                });
+                  setCodeData(data);
+                  updateFormData({
+                    target: { name: 'guestToken', value: data?.guestToken },
+                  });
+                  updateFormData({
+                    target: { name: 'isInvalidEmail', value: !data.isSuccess },
+                  });
+                } catch (error) {
+                } finally {
+                  setIsCodeLoading(false);
+                }
               }}
               buttonText='확인'
+              disabled={isCodeLoading}
             />
             <Message text={codeData?.message} condition={codeData?.isSuccess} />
           </div>

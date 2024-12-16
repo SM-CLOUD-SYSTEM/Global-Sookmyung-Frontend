@@ -37,3 +37,13 @@
 .button:hover {
   filter: brightness(0.9);
 }
+
+.button:disabled {
+  background: var(--gray-scale-7);
+  color: var(--gray-scale-2);
+  cursor: default;
+}
+
+.button:hover:disabled {
+  filter: none;
+}
