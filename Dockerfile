@@ -7,7 +7,7 @@ COPY . .
 RUN yarn build
 
 # nginx을 베이스 이미지로 사용
-FROM nginx
+FROM nginx:1.14
 
 # 리액트 빌드 파일을 nginx/html로 복사
 COPY --from=builder /app/build /usr/share/nginx/html
