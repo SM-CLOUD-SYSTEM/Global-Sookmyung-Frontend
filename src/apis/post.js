@@ -6,12 +6,12 @@ export const getPosts = async ({ postType }) => {
       postType,
     },
   });
-  return response?.result.data;
+  return response?.data.data;
 };
 
 export const getPost = async ({ postId }) => {
   const response = await authAxios.get(`/posts/${postId}`);
-  return response?.result.data;
+  return response?.data.data;
 };
 
 export const createPost = async ({ type, title, content }) => {
