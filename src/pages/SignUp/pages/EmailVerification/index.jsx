@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { sendEmailCode } from '@apis';
+
 import { useSignupContext } from '@contexts';
 
 import { Button, WhiteButton, InputAction } from '@components';
@@ -18,8 +20,8 @@ export default function EmailVerification({ onNext }) {
   const { isInvalidEmail } = formData;
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
-  const [emailData, setEmailData] = useState();
-  const [codeData, setCodeData] = useState();
+  const [emailData, setEmailData] = useState({});
+  const [codeData, setCodeData] = useState({});
 
   return (
     <div className={styles.container}>
@@ -39,8 +41,8 @@ export default function EmailVerification({ onNext }) {
               updateValue={(event) => setEmail(event.target.value)}
               placeholder='이메일을 입력해 주세요'
               onClick={async () => {
-                // const data = await validateEmail();
-                // emailData(data);
+                const data = await sendEmailCode({ email });
+                setEmailData(data);
                 updateFormData({
                   target: { name: 'email', value: email },
                 });
@@ -63,7 +65,7 @@ export default function EmailVerification({ onNext }) {
               placeholder='전송된 인증 코드를 입력해 주세요'
               onClick={async () => {
                 // const data = await checkCode();
-                // codeData(data);
+                // setCodeData(data);
                 updateFormData({
                   target: { name: 'isInvalidEmail', value: false },
                 });
