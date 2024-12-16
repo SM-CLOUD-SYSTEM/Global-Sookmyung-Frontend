@@ -3,12 +3,14 @@ import { authAxios } from '@/axios';
 import { PATH } from '@constants';
 
 export const mypageList = async ({ pathname }) => {
-  if (pathname === PATH.MY_POSTS) {
+  if (pathname === PATH.myPost) {
     return await getMyPosts();
   }
+
+  return [];
 };
 
-export const getMyPosts = async ({ email }) => {
+export const getMyPosts = async () => {
   const response = await authAxios.post('/member/posts');
-  return response?.result.data;
+  return response?.data.data;
 };

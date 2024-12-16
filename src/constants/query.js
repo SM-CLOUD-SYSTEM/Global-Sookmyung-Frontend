@@ -1,5 +1,3 @@
-import { mypageList } from '../apis/mypage.js';
-
 export const QUERY_KEY = Object.freeze({
   post: 'post',
   posts: 'posts',
@@ -7,6 +5,7 @@ export const QUERY_KEY = Object.freeze({
   profile: 'profile',
   search: 'search',
   mypageList: 'mypageList',
+  myPosts: 'myPosts',
 });
 
 export const MUTATION_KEY = Object.freeze({
