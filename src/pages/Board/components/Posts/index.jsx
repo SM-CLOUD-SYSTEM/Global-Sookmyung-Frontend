@@ -15,9 +15,8 @@ export default function Posts({ board }) {
   const { data: posts } = useSuspenseQuery({
     queryKey: [QUERY_KEY.posts, postType],
     queryFn: async () => await getPosts({ postType }),
+    gcTime: 1000 * 60 * 5,
   });
-
-  console.log(posts);
 
   return (
     <ul>
