@@ -9,6 +9,13 @@ RUN yarn build
 # nginx을 베이스 이미지로 사용
 FROM nginx:1.14
 
+# Nginx 시간대 설정 (Asia/Seoul)
+RUN apt-get update && apt-get install -y tzdata \
+    && ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime \
+    && echo "Asia/Seoul" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && apt-get clean
+
 # 리액트 빌드 파일을 nginx/html로 복사
 COPY --from=builder /app/build /usr/share/nginx/html
 

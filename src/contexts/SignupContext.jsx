@@ -24,8 +24,6 @@ export function SignupContextProvider({ children }) {
   };
   const value = useMemo(() => ({ formData, updateFormData }), [formData]);
 
-  console.log(formData);
-
   return (
     <SignupContext.Provider value={value}>{children}</SignupContext.Provider>
   );
