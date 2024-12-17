@@ -13,7 +13,7 @@ export default function BookmarkedPosts() {
     queryFn: async () => await getBookmarkedPosts(),
   });
 
-  const posts = data.slice(0, 5);
+  const posts = data.length > 5 ? data.slice(0, 5) : data;
 
   return (
     <Group
@@ -25,6 +25,7 @@ export default function BookmarkedPosts() {
     >
       {posts.map((post) => (
         <Post
+          key={post.postId}
           post={post}
           to={Path.getPostPath({
             postId: post.postId,
