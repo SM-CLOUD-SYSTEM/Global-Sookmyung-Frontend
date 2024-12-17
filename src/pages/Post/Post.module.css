@@ -1,3 +1,10 @@
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   margin: 70px 0 100px 0;
   display: flex;
