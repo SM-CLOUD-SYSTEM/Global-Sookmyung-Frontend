@@ -23,6 +23,7 @@ import styles from './BasicInformation.module.css';
 export default function BasicInformation({ onPrev, onNext }) {
   const [rePassword, setRePassword] = useState('');
   const [nicknameCheckData, setNicknameCheckData] = useState({});
+  const [isNicknameLoading, setIsNicknameLoading] = useState(false);
   const { formData, updateFormData } = useSignupContext();
   const {
     email,
@@ -42,6 +43,7 @@ export default function BasicInformation({ onPrev, onNext }) {
   const isValid =
     email &&
     password &&
+    password === rePassword &&
     lastName &&
     firstName &&
     year &&
@@ -110,21 +112,28 @@ export default function BasicInformation({ onPrev, onNext }) {
                 name='nickname'
                 label='닉네임'
                 value={nickname}
-                updateValue={(event) => {
+                updateValue={async (event) => {
                   updateFormData(event);
-                  setNicknameCheckData((prev) => ({
+
+                  await setNicknameCheckData((prev) => ({
                     ...prev,
                     isSuccess: undefined,
                   }));
                 }}
                 placeholder='닉네임을 입력해 주세요'
                 onClick={async () => {
-                  const data = await checkNicknameDuplication({ nickname });
-
-                  setNicknameCheckData(data);
+                  try {
+                    setIsNicknameLoading(true);
+                    const data = await checkNicknameDuplication({ nickname });
+                    setNicknameCheckData(data);
+                  } catch (error) {
+                  } finally {
+                    setIsNicknameLoading(false);
+                  }
                 }}
                 buttonText='중복확인'
                 required
+                disabled={isNicknameLoading}
               />
               <Message
                 text={nicknameCheckData?.message}
