@@ -53,6 +53,7 @@ export default function Login() {
                   localStorage.setItem('refresh', refreshToken);
 
                   navigate('/');
+                  location.reload();
                 } catch (error) {
                   const { status } = error?.response ?? {};
 
