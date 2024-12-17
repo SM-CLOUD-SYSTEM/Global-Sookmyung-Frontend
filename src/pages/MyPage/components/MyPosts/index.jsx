@@ -25,6 +25,7 @@ export default function MyPosts() {
     >
       {posts.map((post) => (
         <Post
+          key={post.postId}
           post={post}
           to={Path.getPostPath({
             postId: post.postId,
