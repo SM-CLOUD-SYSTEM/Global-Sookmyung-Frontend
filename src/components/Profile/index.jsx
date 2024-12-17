@@ -15,6 +15,7 @@ export default function Profile() {
   const { data } = useSuspenseQuery({
     queryKey: [QUERY_KEY.profile],
     queryFn: getProfile,
+    gcTime: 1000 * 60 * 5,
   });
   const { nickname } = data;
 
