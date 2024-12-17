@@ -21,7 +21,7 @@ export default function CommentInput() {
   const queryClient = useQueryClient();
   const create = useMutation({
     mutationKey: MUTATION_KEY.createComment,
-    mutationFn: async () => await createComment({ postId, content }),
+    mutationFn: async ({ content }) => await createComment({ postId, content }),
     onSuccess: () => {
       queryClient.invalidateQueries([QUERY_KEY.comments, postId]);
     },
@@ -30,12 +30,12 @@ export default function CommentInput() {
     },
   });
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (!content) {
       return;
     }
 
-    create.mutate();
+    await create.mutate({ content });
     setContent('');
   };
 
