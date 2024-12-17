@@ -15,11 +15,11 @@ export const mypageList = async ({ pathname }) => {
 };
 
 export const getMyPosts = async () => {
-  const response = await authAxios.post('/member/posts');
+  const response = await authAxios.get('/member/posts');
   return response?.data.data;
 };
 
 export const getBookmarkedPosts = async () => {
-  const response = await authAxios.post('/member/bookmark/posts');
+  const response = await authAxios.get('/member/bookmark/posts');
   return response?.data.data;
 };
