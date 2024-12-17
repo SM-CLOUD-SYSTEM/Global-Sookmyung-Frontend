@@ -13,7 +13,7 @@ export default function MyPosts() {
     queryFn: async () => await getMyPosts(),
   });
 
-  const posts = data.slice(0, 5);
+  const posts = data.length > 5 ? data.slice(0, 5) : data;
 
   return (
     <Group
