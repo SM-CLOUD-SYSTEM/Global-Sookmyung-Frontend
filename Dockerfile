@@ -9,12 +9,14 @@ RUN yarn build
 # nginx을 베이스 이미지로 사용
 FROM nginx:1.14
 
-# Nginx 시간대 설정 (Asia/Seoul)
-RUN apt-get update && apt-get install -y tzdata \
-    && ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime \
-    && echo "Asia/Seoul" > /etc/timezone \
-    && dpkg-reconfigure -f noninteractive tzdata \
-    && apt-get clean
+# 타임존 설정을 위한 환경 변수
+ENV TZ=Asia/Seoul
+
+# 한국 타임존 파일 복사 및 설정
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # 리액트 빌드 파일을 nginx/html로 복사
 COPY --from=builder /app/build /usr/share/nginx/html
