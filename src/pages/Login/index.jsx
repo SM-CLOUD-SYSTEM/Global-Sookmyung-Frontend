@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { login } from '@apis';
 
@@ -13,6 +13,7 @@ import { ReactComponent as KeyIcon } from '@assets/key.svg';
 import styles from './Login.module.css';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -40,7 +41,29 @@ export default function Login() {
             />
           </div>
           <div className={styles.button}>
-            <Button onClick={() => login({ email, password })}>로그인</Button>
+            <Button
+              onClick={async () => {
+                try {
+                  const { accessToken, refreshToken } = await login({
+                    email,
+                    password,
+                  });
+
+                  localStorage.setItem('access', accessToken);
+                  localStorage.setItem('refresh', refreshToken);
+
+                  navigate('/');
+                } catch (error) {
+                  const { status } = error?.response ?? {};
+
+                  if (status === 404) {
+                    alert('존재하지 않는 회원입니다.');
+                  }
+                }
+              }}
+            >
+              로그인
+            </Button>
           </div>
         </div>
         <div className={styles.links}>
