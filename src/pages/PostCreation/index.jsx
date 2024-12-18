@@ -28,23 +28,37 @@ export default function PostCreation() {
   const navigate = useNavigate();
   const back = () => navigate(-1);
 
+  const [boardName, setBoardName] = useState('All Student');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [isLoading, setLoading] = useState();
+
+  const updateTitle = (event) => setTitle(event.target.value);
+  const updateContent = (event) => setContent(event.target.value);
+
+  const type = boardName.split(' ').join('_').toUpperCase();
+
+  const canCreate = boardName && title && content;
+
   const queryClient = useQueryClient();
 
-  const create = useMutation({
-    mutationKey: [MUTATION_KEY.createPost],
-    mutationFn: async () => await createPost({ type, title, content }),
-    onSuccess: ({ data }) => {
+  const create = async () => {
+    try {
+      setLoading(true);
+
       const type = boardName.split(' ').join('_').toUpperCase();
-      queryClient.invalidateQueries([QUERY_KEY.posts, type]);
+
+      await createPost({ type, title, content });
+      await queryClient.invalidateQueries([QUERY_KEY.posts, type]);
 
       alert('게시글 작성 완료!');
 
       const boardPath =
         boardName === 'All Students' ? PATH.allBoard : internationalBoard;
+
       navigate(boardPath);
-    },
-    onError: (error) => {
-      const { status } = error?.response;
+    } catch (error) {
+      const { status } = error?.response ?? {};
 
       if (status === 401) {
         alert('로그인 후 이용해주세요');
@@ -59,24 +73,10 @@ export default function PostCreation() {
       }
 
       alert('잠시 후 다시 시도해주세요');
-    },
-    onSettled: () => {
+    } finally {
       setLoading(false);
-    },
-  });
-
-  const [boardName, setBoardName] = useState('All Student');
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-
-  const updateTitle = (event) => setTitle(event.target.value);
-  const updateContent = (event) => setContent(event.target.value);
-
-  const type = boardName.split(' ').join('_').toUpperCase();
-
-  const [isLoading, setLoading] = useState();
-
-  const canCreate = boardName && title && content;
+    }
+  };
 
   return (
     <section className={styles.container}>
@@ -135,13 +135,7 @@ export default function PostCreation() {
         <div className={styles.buttons}>
           <div>
             <WhiteButton onClick={back}>취소</WhiteButton>
-            <Button
-              onClick={async () => {
-                setLoading(true);
-                await create.mutate({ boardName, title, content });
-              }}
-              disabled={!canCreate || isLoading}
-            >
+            <Button onClick={create} disabled={!canCreate || isLoading}>
               등록
             </Button>
           </div>
