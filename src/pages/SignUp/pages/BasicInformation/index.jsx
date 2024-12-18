@@ -76,7 +76,7 @@ export default function BasicInformation({ onPrev, onNext }) {
               label='비밀번호'
               value={password}
               updateValue={updateFormData}
-              placeholder='8자 이상의 영문 대소문자/숫자/특수문자'
+              placeholder='비밀번호'
               required
             />
             <InputWithLabel
@@ -85,7 +85,7 @@ export default function BasicInformation({ onPrev, onNext }) {
               label='비밀번호 재입력'
               value={rePassword}
               updateValue={(event) => setRePassword(event.target.value)}
-              placeholder='8자 이상의 영문 대소문자/숫자/특수문자'
+              placeholder='비밀번호'
               required
             />
           </Group>
