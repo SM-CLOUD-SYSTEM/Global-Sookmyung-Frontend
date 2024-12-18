@@ -57,9 +57,12 @@ export default function Login() {
                 } catch (error) {
                   const { status } = error?.response ?? {};
 
-                  if (status === 404) {
-                    alert('존재하지 않는 회원입니다.');
+                  if (status === 400) {
+                    alert('존재하지 않는 회원입니다');
+                    return;
                   }
+
+                  alert('잠시 후 다시 시도해주세요');
                 }
               }}
             >
