@@ -37,8 +37,8 @@ export default function Profile() {
           <button
             className={styles.logout}
             onClick={() => {
-              logout();
               navigate('/');
+              logout();
             }}
           >
             로그아웃
