@@ -4,13 +4,9 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getComments } from '@apis';
 
-import { Paginator } from '@components';
 import { Comment } from '@pages/Post/components';
 
-import { QUERY_KEY } from '../../../../constants/query.js';
-
-const START_PAGE = 1;
-const pageCount = 117;
+import { QUERY_KEY } from '@constants';
 
 export default function Comments() {
   const { postId } = useParams();
@@ -18,7 +14,6 @@ export default function Comments() {
     queryKey: [QUERY_KEY.comments, postId],
     queryFn: async () => await getComments({ postId }),
   });
-  const [page, setPage] = useState(START_PAGE);
 
   return (
     <ul>
