@@ -4,8 +4,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { getPosts } from '@apis';
 
 import { Post } from '@components';
-
-import Path from '@utils/Path.js';
+import Path from '@utils/Path';
 import { QUERY_KEY } from '@constants';
 
 export default function Posts({ board }) {
@@ -24,10 +23,7 @@ export default function Posts({ board }) {
         <Post
           key={post.postId}
           post={post}
-          to={Path.getPostPath({
-            postId: post.postId,
-            boardId: id,
-          })}
+          to={Path.getPostPath({ postId: post.postId })}
         />
       ))}
     </ul>

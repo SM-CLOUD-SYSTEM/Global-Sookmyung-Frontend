@@ -1,7 +1,7 @@
 const title = '한국어 어학 스터디 그룹 모집! (초급/중급) 📚';
 const commentCount = 1;
-const date = '2024-11-20T02:00:00Z';
-const nickname = '눈송이';
+const createdAt = '2024-11-20T02:00:00Z';
+const authorName = '눈송이';
 const likeCount = 123;
 const profileUrl = undefined;
 const bookmarkCount = 27;
@@ -35,62 +35,23 @@ const content = `안녕하세요!
 감사합니다! 😊`;
 
 export const POSTS = [
-  { postId: 1, title, commentCount, date, nickname, likeCount },
-  { postId: 2, title, commentCount, date, nickname, likeCount },
-  { postId: 3, title, commentCount, date, nickname, likeCount },
-  { postId: 4, title, commentCount, date, nickname, likeCount },
-  { postId: 5, title, commentCount, date, nickname, likeCount },
-  { postId: 6, title, commentCount, date, nickname, likeCount },
-  { postId: 7, title, commentCount, date, nickname, likeCount },
-  { postId: 8, title, commentCount, date, nickname, likeCount },
-  { postId: 9, title, commentCount, date, nickname, likeCount },
-  { postId: 10, title, commentCount, date, nickname, likeCount },
-];
-
-export const MY_POSTS = [
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
-];
-
-export const BOOKMARK_POSTS = [
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
-];
-
-export const SEARCH_POSTS = [
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 1, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 2, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 3, title, commentCount, date, nickname, likeCount },
-  { boardId: 2, postId: 4, title, commentCount, date, nickname, likeCount },
-  { boardId: 1, postId: 5, title, commentCount, date, nickname, likeCount },
+  { postId: 1, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 2, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 3, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 4, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 5, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 6, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 7, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 8, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 9, title, commentCount, createdAt, authorName, likeCount },
+  { postId: 10, title, commentCount, createdAt, authorName, likeCount },
 ];
 
 export const POST = {
   title,
   profileUrl,
-  nickname,
-  date,
+  authorName,
+  createdAt,
   likeCount,
   bookmarkCount,
   content,
