@@ -8,6 +8,7 @@ import Login from '@pages/Login';
 import GroupBoard from '@pages/GroupBoard';
 import SignUp from '@pages/SignUp';
 import AccountRecovery from '@pages/AccountRecovery';
+import NotFound from '@pages/NotFound';
 
 import { PATH } from '@constants';
 
@@ -67,6 +68,10 @@ export const routes = [
       {
         path: PATH.signUp,
         element: <SignUp />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },

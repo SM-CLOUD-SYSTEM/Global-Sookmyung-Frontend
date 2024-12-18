@@ -1,4 +1,4 @@
-import { Suspense, useState, startTransition } from 'react';
+import { Suspense, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
