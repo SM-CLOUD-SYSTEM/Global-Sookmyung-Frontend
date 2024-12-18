@@ -10,7 +10,6 @@ import styles from './Content.module.css';
 export default function Content() {
   const navigate = useNavigate();
   const { postId } = useParams();
-  const { getPost } = usePost();
 
   const { data: post } = useSuspenseQuery({
     queryKey: [QUERY_KEY.post, postId],
