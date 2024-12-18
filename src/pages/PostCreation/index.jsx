@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useQueryClient, useMutation } from '@tanstack/react-query';
+import { ErrorBoundary } from 'react-error-boundary';
+import {
+  useQueryClient,
+  useMutation,
+  QueryErrorResetBoundary,
+} from '@tanstack/react-query';
 
 import { usePost } from '@hooks';
-import { Button, Profile, WhiteButton } from '@components';
+import {
+  Button,
+  WhiteButton,
+  Profile,
+  ProfileErrorFallback,
+  Loading,
+} from '@components';
 import { Dropdown } from '@pages/PostCreation/components';
 
-import Path from '@utils/Path.js';
 import { BOARD, MUTATION_KEY } from '@constants';
 
 import styles from './PostCreation.module.css';
@@ -14,13 +24,12 @@ import styles from './PostCreation.module.css';
 const [_, ...boards] = Object.values(BOARD).map(({ name }) => name);
 
 export default function PostCreation() {
-  const { pathname } = useLocation();
-  const board = Path.getBoard(pathname);
-
   const navigate = useNavigate();
   const back = () => navigate(-1);
 
-  const [boardName, setBoardName] = useState(board.name);
+  const [isLoading, setIsLoading] = useState();
+
+  const [boardName, setBoardName] = useState('All Student');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
@@ -31,6 +40,7 @@ export default function PostCreation() {
 
   const queryClient = useQueryClient();
   const { createPost } = usePost();
+
   const create = useMutation({
     mutationKey: [MUTATION_KEY.createPost],
     mutationFn: createPost,
@@ -39,16 +49,45 @@ export default function PostCreation() {
       queryClient.invalidateQueries([QUERY_KEY.posts, type]);
 
       alert('게시글 작성 완료!');
-      navigate(-2);
+      navigate(-1);
     },
     onError: (error) => {
-      alert(error.response.data.message);
+      const { status } = error?.response;
+
+      if (status === 401) {
+        alert('로그인 후 이용해주세요');
+        navigate(-1);
+        return;
+      }
+
+      if (status === 403) {
+        alert('작성 권한이 없습니다');
+        navigate(-1);
+        return;
+      }
+
+      alert('잠시 후 다시 시도해주세요');
+    },
+    onSettled: () => {
+      setLoading(false);
     },
   });
 
   return (
     <section className={styles.container}>
-      <Profile />
+      <QueryErrorResetBoundary>
+        {({ reset }) => (
+          <ErrorBoundary
+            onReset={reset}
+            FallbackComponent={ProfileErrorFallback}
+          >
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
+          </ErrorBoundary>
+        )}
+      </QueryErrorResetBoundary>
+
       <article className={styles.article}>
         <div className={styles.wrapper}>
           <div className={styles.top}>
@@ -61,7 +100,6 @@ export default function PostCreation() {
                   boardName={boardName}
                   options={boards}
                   setValue={setBoardName}
-                  initial={board}
                 />
               </div>
             </div>
@@ -93,10 +131,11 @@ export default function PostCreation() {
           <div>
             <WhiteButton onClick={back}>취소</WhiteButton>
             <Button
-              onClick={async () =>
-                await create.mutate({ boardName, title, content })
-              }
-              disabled={!canCreate}
+              onClick={async () => {
+                setIsLoading(true);
+                await create.mutate({ boardName, title, content });
+              }}
+              disabled={!canCreate || isLoading}
             >
               등록
             </Button>
