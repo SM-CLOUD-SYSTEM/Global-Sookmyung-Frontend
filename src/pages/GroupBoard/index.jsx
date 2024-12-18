@@ -1,23 +1,15 @@
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { ErrorBoundary } from 'react-error-boundary';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
 
-import { mypageList, getMyPosts } from '@apis';
+import { BoardIndex, Button, Paginator, Loading } from '@components';
+import { Posts, PostsErrorFallback } from '@pages/GroupBoard/components';
 
-import { BoardIndex, Button, Paginator, Post, Loading } from '@components';
-import Path from '@utils/Path.js';
 import { PATH } from '@constants';
 import { ReactComponent as BackIcon } from '@assets/backArrow.svg';
 
-import { QUERY_KEY } from '@constants';
-import { MY_POSTS, BOOKMARK_POSTS } from '@dummy';
-
 import styles from './GroupBoard.module.css';
-
-const CATEGORY = {
-  myPost: 'myPost',
-  bookmark: 'bookmark',
-};
 
 export default function GroupBoard() {
   const [page, setPage] = useState(1);
@@ -27,16 +19,6 @@ export default function GroupBoard() {
 
   const navigate = useNavigate();
   const back = () => navigate(PATH.myPage);
-
-  const { data: posts, isPending } = useQuery({
-    queryKey: [QUERY_KEY.mypageList, pathname],
-    queryFn: async () => await mypageList({ pathname }),
-    initialData: [],
-  });
-
-  if (isPending) {
-    return <Loading />;
-  }
 
   return (
     <section className={styles.container}>
@@ -61,21 +43,21 @@ export default function GroupBoard() {
           </div>
           <div>
             <BoardIndex square />
-            <ul>
-              {posts.map((post) => (
-                <Post
-                  key={post.postId}
-                  post={post}
-                  to={Path.getPostPath({
-                    postId: post.postId,
-                    boardId: post.boardId,
-                  })}
-                />
-              ))}
-            </ul>
+            <QueryErrorResetBoundary>
+              {({ reset }) => (
+                <ErrorBoundary
+                  onReset={reset}
+                  FallbackComponent={PostsErrorFallback}
+                >
+                  <Suspense fallback={<Loading />}>
+                    <Posts />
+                  </Suspense>
+                </ErrorBoundary>
+              )}
+            </QueryErrorResetBoundary>
           </div>
           <div className={styles.writeButton}>
-            <Link to={`${PATH.allBoard}${PATH.postCreation}`}>
+            <Link to={PATH.postCreation}>
               <Button>글쓰기</Button>
             </Link>
           </div>
