@@ -29,6 +29,7 @@ export function Label({ children, required }) {
 }
 
 export function InputWithLabel({
+  type,
   name,
   label,
   value,
@@ -42,6 +43,7 @@ export function InputWithLabel({
     <div>
       <Label required={required}>{label}</Label>
       <Input
+        type={type}
         name={name}
         value={value}
         defaultValue={defaultValue}

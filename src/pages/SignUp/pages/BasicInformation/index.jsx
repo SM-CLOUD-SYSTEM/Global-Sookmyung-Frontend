@@ -71,6 +71,7 @@ export default function BasicInformation({ onPrev, onNext }) {
           </Group>
           <Group>
             <InputWithLabel
+              type='password'
               name='password'
               label='비밀번호'
               value={password}
@@ -79,6 +80,7 @@ export default function BasicInformation({ onPrev, onNext }) {
               required
             />
             <InputWithLabel
+              type='password'
               name='rePassword'
               label='비밀번호 재입력'
               value={rePassword}
