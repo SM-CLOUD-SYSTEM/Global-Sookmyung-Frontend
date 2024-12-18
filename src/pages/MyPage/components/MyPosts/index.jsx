@@ -3,7 +3,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { getMyPosts } from '@apis';
 
 import { Post } from '@components';
-
+import Path from '@utils/Path.js';
 import { PATH, QUERY_KEY } from '@constants';
 
 export default function MyPosts() {

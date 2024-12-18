@@ -14,7 +14,6 @@ import {
   BookmarkedPostsErrorFallback,
 } from '@pages/MyPage/components';
 
-import Path from '@utils/Path.js';
 import { PATH } from '@constants';
 import { ReactComponent as BookIcon } from '@assets/book.svg';
 import { ReactComponent as CallIcon } from '@assets/call.svg';
