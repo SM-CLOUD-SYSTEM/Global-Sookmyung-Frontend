@@ -13,7 +13,7 @@ export default function Post({ post, to }) {
       <li className={styles.post}>
         <div className={styles.left}>
           <span className={styles.title}>{title}</span>
-          <span className={styles.commentCount}>({commentCount})</span>
+          <span className={styles.commentCount}>{commentCount}</span>
           <span className={styles.date}>{createdAt}</span>
         </div>
         <div className={styles.right}>
