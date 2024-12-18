@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 import { getProfile } from '@apis';
@@ -12,6 +13,8 @@ import { USER } from '@dummy';
 import styles from './Profile.module.css';
 
 export default function Profile() {
+  const navigate = useNavigate();
+
   const { data } = useSuspenseQuery({
     queryKey: [QUERY_KEY.profile],
     queryFn: getProfile,
@@ -31,7 +34,13 @@ export default function Profile() {
         <div className={styles.bottom}>
           <LinkButton to={PATH.myPost}>내가 쓴 글 보러가기</LinkButton>
           <LinkButton to={PATH.bookmark}>즐겨찾기한 글 보러가기</LinkButton>
-          <button className={styles.logout} onClick={() => alert('로그아웃!')}>
+          <button
+            className={styles.logout}
+            onClick={() => {
+              logout();
+              navigate('/');
+            }}
+          >
             로그아웃
           </button>
         </div>
