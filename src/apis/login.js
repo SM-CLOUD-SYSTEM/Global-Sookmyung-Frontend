@@ -8,3 +8,8 @@ export const login = async ({ email, password }) => {
 
   return response?.data.data;
 };
+
+export const logout = () => {
+  localStorage.removeItem('access');
+  location.reload();
+};
