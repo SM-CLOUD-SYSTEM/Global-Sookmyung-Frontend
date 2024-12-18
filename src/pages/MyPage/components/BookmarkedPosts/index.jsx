@@ -20,10 +20,7 @@ export default function BookmarkedPosts() {
         <Post
           key={post.postId}
           post={post}
-          to={Path.getPostPath({
-            postId: post.postId,
-            boardId: post.boardId,
-          })}
+          to={Path.getPostPath({ postId: post.postId })}
         />
       ))}
     </>

@@ -19,14 +19,11 @@ import { ReactComponent as BookIcon } from '@assets/book.svg';
 import { ReactComponent as CallIcon } from '@assets/call.svg';
 import { ReactComponent as SchoolIcon } from '@assets/school.svg';
 
-import { INFO, MY_POSTS, BOOKMARK_POSTS } from '@dummy';
+import { INFO } from '@dummy';
 
 import styles from './MyPage.module.css';
 
 export default function MyPage() {
-  const TOP5_MY_POSTS = MY_POSTS.slice(0, 5);
-  const TOP5_BOOKMARK_POSTS = BOOKMARK_POSTS.slice(0, 5);
-
   return (
     <section className={styles.container}>
       <ErrorBoundary FallbackComponent={ProfileErrorFallback}>
