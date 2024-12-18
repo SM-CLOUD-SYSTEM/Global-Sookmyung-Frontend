@@ -26,7 +26,7 @@ export default function Profile() {
       <div className={styles.bottom}>
         <div className={styles.wrapper}>
           <div className={styles.meta}>
-            <span className={styles.nickname}>{USER.nickname}</span>
+            <span className={styles.nickname}>{nickname}</span>
           </div>
           <div className={styles.logout}>
             <button
