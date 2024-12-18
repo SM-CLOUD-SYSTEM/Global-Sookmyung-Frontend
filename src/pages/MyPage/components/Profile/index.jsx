@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
-import { getProfile } from '@apis';
+import { getProfile, logout } from '@apis';
 
 import ProfileImage from '@components/ProfileImage';
 
@@ -11,6 +12,8 @@ import { USER } from '@dummy';
 import styles from './Profile.module.css';
 
 export default function Profile() {
+  const navigate = useNavigate();
+
   const { data } = useSuspenseQuery({
     queryKey: [QUERY_KEY.profile],
     queryFn: getProfile,
@@ -33,7 +36,15 @@ export default function Profile() {
               className={styles.button}
               onClick={() => alert('로그아웃!')}
             >
-              <span>로그아웃</span> <LogoutIcon />
+              <span
+                onClick={() => {
+                  logout();
+                  navigate('/');
+                }}
+              >
+                로그아웃
+              </span>{' '}
+              <LogoutIcon />
             </button>
           </div>
         </div>
