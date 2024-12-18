@@ -1,8 +1,8 @@
-import { Suspense, startTransition } from 'react';
+import { Suspense, startTransition, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import { QueryErrorResetBoundary } from '@tanstack/react-query';
+import { useQueryClient, QueryErrorResetBoundary } from '@tanstack/react-query';
 
-import ErrorPage from '@pages/ErrorPage';
 import { Profile, ProfileErrorFallback, Loading } from '@components';
 import {
   BoardNavigationHeader,
@@ -13,13 +13,28 @@ import {
   CommentInput,
 } from '@pages/Post/components';
 
-import { POST } from '@dummy';
+import { QUERY_KEY } from '@constants';
 
 import styles from './Post.module.css';
 
-const { commentCount } = POST;
-
 export default function Post() {
+  const { postId } = useParams();
+  const [commentCount, setCommentCount] = useState();
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const comments = queryClient.getQueryData([QUERY_KEY.comments, postId]);
+
+      if (comments) {
+        setCommentCount(() => comments.length);
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={styles.container}>
       <QueryErrorResetBoundary>
