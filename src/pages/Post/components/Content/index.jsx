@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
-import { usePost } from '@hooks';
+import { getPost } from '@apis';
 import { PostHeader, BookmarkButton, LikeButton } from '@pages/Post/components';
 import { QUERY_KEY } from '@constants';
 
@@ -14,7 +14,7 @@ export default function Content() {
 
   const { data: post } = useSuspenseQuery({
     queryKey: [QUERY_KEY.post, postId],
-    queryFn: getPost,
+    queryFn: async () => await getPost({ postId }),
   });
 
   const {
@@ -25,8 +25,6 @@ export default function Content() {
     bookmarkCount,
     commentCount,
   } = post;
-
-  console.log(post);
 
   return (
     <div className={styles.top}>

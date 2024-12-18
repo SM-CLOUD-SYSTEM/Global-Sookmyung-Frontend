@@ -7,7 +7,8 @@ import {
   QueryErrorResetBoundary,
 } from '@tanstack/react-query';
 
-import { usePost } from '@hooks';
+import { createPost } from '@apis';
+
 import {
   Button,
   WhiteButton,
@@ -27,42 +28,33 @@ export default function PostCreation() {
   const navigate = useNavigate();
   const back = () => navigate(-1);
 
-  const [isLoading, setIsLoading] = useState();
-
-  const [boardName, setBoardName] = useState('All Student');
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-
-  const updateTitle = (event) => setTitle(event.target.value);
-  const updateContent = (event) => setContent(event.target.value);
-
-  const canCreate = boardName && title && content;
-
   const queryClient = useQueryClient();
-  const { createPost } = usePost();
 
   const create = useMutation({
     mutationKey: [MUTATION_KEY.createPost],
-    mutationFn: createPost,
-    onSuccess: () => {
+    mutationFn: async () => await createPost({ type, title, content }),
+    onSuccess: ({ data }) => {
       const type = boardName.split(' ').join('_').toUpperCase();
       queryClient.invalidateQueries([QUERY_KEY.posts, type]);
 
       alert('게시글 작성 완료!');
-      navigate(-1);
+
+      const boardPath =
+        boardName === 'All Students' ? PATH.allBoard : internationalBoard;
+      navigate(boardPath);
     },
     onError: (error) => {
       const { status } = error?.response;
 
       if (status === 401) {
         alert('로그인 후 이용해주세요');
-        navigate(-1);
+        back();
         return;
       }
 
-      if (status === 403) {
+      if (status === 403 || status === 400) {
         alert('작성 권한이 없습니다');
-        navigate(-1);
+        back();
         return;
       }
 
@@ -72,6 +64,19 @@ export default function PostCreation() {
       setLoading(false);
     },
   });
+
+  const [boardName, setBoardName] = useState('All Student');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  const updateTitle = (event) => setTitle(event.target.value);
+  const updateContent = (event) => setContent(event.target.value);
+
+  const type = boardName.split(' ').join('_').toUpperCase();
+
+  const [isLoading, setLoading] = useState();
+
+  const canCreate = boardName && title && content;
 
   return (
     <section className={styles.container}>
@@ -132,7 +137,7 @@ export default function PostCreation() {
             <WhiteButton onClick={back}>취소</WhiteButton>
             <Button
               onClick={async () => {
-                setIsLoading(true);
+                setLoading(true);
                 await create.mutate({ boardName, title, content });
               }}
               disabled={!canCreate || isLoading}
