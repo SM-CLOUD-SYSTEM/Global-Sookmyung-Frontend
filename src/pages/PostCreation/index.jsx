@@ -41,7 +41,7 @@ export default function PostCreation() {
 
       navigate(boardPath);
     },
-    onError: () => {
+    onError: (error) => {
       const { status } = error?.response ?? {};
 
       if (status === 401) {
