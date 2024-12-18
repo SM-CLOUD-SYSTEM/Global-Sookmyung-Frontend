@@ -1,0 +1,18 @@
+.content {
+  margin: 35px 0 50px 0;
+  color: var(--gray-scale-1);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.72px;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.buttons {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  border-bottom: 1px solid var(--gray-scale-7);
+}

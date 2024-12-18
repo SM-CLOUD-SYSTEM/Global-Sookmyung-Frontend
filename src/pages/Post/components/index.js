@@ -1,6 +1,8 @@
 export { default as ActionButton } from '@pages/Post/components/ActionButton';
 export { default as BoardNavigationHeader } from '@pages/Post/components/BoardNavigationHeader';
 export { default as BookmarkButton } from '@pages/Post/components/BookmarkButton';
+export { default as Content } from '@pages/Post/components/Content';
+export { default as ContentErrorFallback } from '@pages/Post/components/Content/ContentErrorFallback';
 export { default as Comment } from '@pages/Post/components/Comment';
 export { default as Comments } from '@pages/Post/components/Comments';
 export { default as CommentsErrorFallback } from '@pages/Post/components/Comments/CommentsErrorFallback';
