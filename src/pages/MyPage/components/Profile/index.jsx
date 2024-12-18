@@ -34,17 +34,12 @@ export default function Profile() {
           <div className={styles.logout}>
             <button
               className={styles.button}
-              onClick={() => alert('로그아웃!')}
+              onClick={() => {
+                navigate('/');
+                logout();
+              }}
             >
-              <span
-                onClick={() => {
-                  logout();
-                  navigate('/');
-                }}
-              >
-                로그아웃
-              </span>{' '}
-              <LogoutIcon />
+              <span>로그아웃</span> <LogoutIcon />
             </button>
           </div>
         </div>

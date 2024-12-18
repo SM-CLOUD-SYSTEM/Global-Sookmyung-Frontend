@@ -12,4 +12,5 @@ export const login = async ({ email, password }) => {
 export const logout = () => {
   localStorage.removeItem('access');
   location.reload();
+  alert('로그아웃 되었습니다');
 };

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
-import { getProfile } from '@apis';
+import { getProfile, logout } from '@apis';
 
 import ProfileImage from '@components/ProfileImage';
 import LinkButton from '@components/Profile/LinkButton.jsx';
@@ -37,8 +37,8 @@ export default function Profile() {
           <button
             className={styles.logout}
             onClick={() => {
-              logout();
               navigate('/');
+              logout();
             }}
           >
             로그아웃
